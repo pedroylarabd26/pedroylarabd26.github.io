@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Pedro y Lara</title>
 
-    <!-- Favicon (pon aquí tu logo como favicon.png en la raíz) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Tipografías elegantes -->
+    <!-- Tipografías -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <style>
@@ -92,7 +92,7 @@
             color: white;
         }
 
-        /* Hero principal */
+        /* Hero */
         .hero {
             height: 100vh;
             display: flex;
@@ -185,18 +185,14 @@
             position: relative;
         }
 
-        .polaroid:nth-child(2n) {
-            transform: rotate(2deg);
-        }
-
-        .polaroid:nth-child(3n) {
-            transform: rotate(-1deg);
-        }
+        .polaroid:nth-child(2n) { transform: rotate(2deg); }
+        .polaroid:nth-child(3n) { transform: rotate(-1deg); }
 
         .polaroid img {
             width: 100%;
             border-radius: 4px;
             display: block;
+            cursor: zoom-in;
         }
 
         .polaroid-title {
@@ -211,141 +207,82 @@
             box-shadow: 0 10px 24px rgba(0,0,0,0.6);
         }
 
-        /* Formulario */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        input, textarea {
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--dorado);
-            font-size: 1rem;
-            font-family: "Playfair Display", serif;
-            background: rgba(255,255,255,0.85);
-            color: black;
-        }
-
-        button {
-            padding: 12px;
-            background: var(--dorado);
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--burdeos);
-        }
-
-        button:hover {
-            background: #e8cda3;
-        }
-
-        /* Mapa */
-        iframe.mapa {
-            width: 100%;
-            height: 350px;
-            border: none;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        iframe.formulario {
-            width: 100%;
-            border-radius: 12px;
-            border: none;
-            margin-top: 20px;
-        }
-
-        /* Botón volver arriba */
-        #btnTop {
+        /* LIGHTBOX */
+        .lightbox-overlay {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: var(--dorado);
-            color: var(--burdeos);
-            border: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            z-index: 30;
+            align-items: center;
+            z-index: 999;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
 
-        #btnTop.visible {
+        .lightbox-overlay.visible {
             opacity: 1;
             pointer-events: auto;
         }
 
-        /* Footer */
-        footer {
-            margin-top: 60px;
-            padding: 20px 10px;
-            text-align: center;
-            color: var(--blanco-suave);
-            font-size: 0.9rem;
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: hidden;
         }
 
-        footer .linea {
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--dorado), transparent);
-            margin-bottom: 10px;
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            touch-action: none;
         }
 
-        footer .logo-footer {
+        .lightbox-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--dorado);
+            color: var(--burdeos);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.4rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
 
-        /* Responsive */
+        /* Flechas */
+        .lightbox-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: var(--dorado);
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+        }
+
+        .arrow-left { left: -60px; }
+        .arrow-right { right: -60px; }
+
         @media (max-width: 700px) {
-
-            nav {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            .title {
-                font-size: 3.5rem;
-            }
-
-            .countdown {
-                flex-direction: row;
-                flex-wrap: nowrap;
-                gap: 8px;
-                font-size: 1rem;
-            }
-
-            .countdown div {
-                padding: 8px 10px;
-            }
-
-            .countdown span {
-                font-size: 1.2rem;
-            }
-
-            nav a {
-                margin: 0 4px;
-                font-size: 0.8rem;
-            }
-
-            .polaroid {
-                width: 140px;
-            }
+            nav { flex-wrap: wrap; gap: 10px; }
+            .title { font-size: 3.5rem; }
+            .polaroid { width: 140px; }
+            .arrow-left { left: 10px; }
+            .arrow-right { right: 10px; }
         }
     </style>
 </head>
@@ -378,12 +315,13 @@
         </div>
     </div>
 
-    <!-- Secciones -->
+    <!-- Sección Información -->
     <section id="info" class="animate">
         <h2>Información</h2>
         <p>Aquí podrás encontrar todos los detalles sobre nuestro gran día.</p>
     </section>
 
+    <!-- Sección Ubicación -->
     <section id="ubicacion" class="animate">
         <h2>Ubicación</h2>
         <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
@@ -397,25 +335,44 @@
         </iframe>
     </section>
 
+    <!-- Sección Alojamientos -->
     <section id="alojamientos" class="animate">
         <h2>Alojamientos</h2>
         <p>Recomendaciones de hoteles y alojamientos cercanos.</p>
     </section>
 
+    <!-- Sección Nosotros -->
     <section id="nosotros" class="animate">
         <h2>Nosotros</h2>
         <p>Nuestra historia y momentos especiales que queremos compartir contigo.</p>
     </section>
 
+    <!-- Sección Galería -->
     <section id="galeria" class="animate">
         <h2>Galería</h2>
         <p>Algunos momentos especiales que queremos compartir contigo.</p>
 
         <div class="galeria-grid" id="galeriaGrid">
-            <!-- Las fotos se generan por JavaScript a partir de la lista de archivos -->
+            <!-- Las fotos se generan automáticamente desde JavaScript -->
         </div>
     </section>
 
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox-overlay">
+        <div class="lightbox-content">
+            <!-- Botón cerrar -->
+            <span class="lightbox-close">×</span>
+
+            <!-- Flechas -->
+            <span class="lightbox-arrow arrow-left">❮</span>
+            <span class="lightbox-arrow arrow-right">❯</span>
+
+            <!-- Imagen ampliada -->
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Sección Confirmación -->
     <section id="confirmacion" class="animate">
         <h2>Confirmación</h2>
         <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
@@ -428,6 +385,7 @@
         </iframe>
     </section>
 
+    <!-- Sección Contacto -->
     <section id="contacto" class="animate">
         <h2>Contacto</h2>
         <p>Si tienes cualquier duda, puedes escribirnos directamente desde aquí.</p>
@@ -453,9 +411,11 @@
     <!-- Botón volver arriba -->
     <button id="btnTop" aria-label="Volver arriba">↑</button>
 
-    <!-- Script del contador + animaciones + galería -->
+    <!-- Script general -->
     <script>
-        // Contador
+        /* ============================
+           CONTADOR
+        ============================ */
         function actualizarContador() {
             const objetivo = new Date("2026-10-17T12:00:00");
             const ahora = new Date();
@@ -480,7 +440,9 @@
         setInterval(actualizarContador, 1000);
         actualizarContador();
 
-        // Animaciones al hacer scroll
+        /* ============================
+           ANIMACIONES AL HACER SCROLL
+        ============================ */
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -491,7 +453,9 @@
 
         document.querySelectorAll('section.animate').forEach(sec => observer.observe(sec));
 
-        // Botón volver arriba
+        /* ============================
+           BOTÓN VOLVER ARRIBA
+        ============================ */
         const btnTop = document.getElementById('btnTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
@@ -505,18 +469,21 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Galería polaroid
-        // Añade aquí los nombres de los archivos que pongas en /fotos_galeria/
-        // Ejemplo: ["foto1.jpg", "playa_2023.jpg", "nosotros_boda.png"]
+        /* ============================
+           GALERÍA POLAROID (AUTOMÁTICA)
+        ============================ */
+
+        // Lista de imágenes en el orden EXACTO que tú quieras (opción C)
         const archivosGaleria = [
             "Atardecer en Jaraiz.jpg",
             "Atardecer en Portugal.jpg"
         ];
 
-
         const galeriaGrid = document.getElementById('galeriaGrid');
+        let indiceActual = 0; // Para el lightbox
 
-        archivosGaleria.forEach(nombreArchivo => {
+        // Generar tarjetas polaroid
+        archivosGaleria.forEach((nombreArchivo, index) => {
             const ruta = "fotos_galeria/" + nombreArchivo;
             const sinExtension = nombreArchivo.replace(/\.[^/.]+$/, "");
             const titulo = sinExtension.replace(/_/g, " ");
@@ -527,6 +494,7 @@
             const img = document.createElement('img');
             img.src = ruta;
             img.alt = titulo;
+            img.dataset.index = index; // Para saber qué foto abrir
 
             const caption = document.createElement('div');
             caption.className = 'polaroid-title';
@@ -536,6 +504,112 @@
             card.appendChild(caption);
             galeriaGrid.appendChild(card);
         });
+
+        /* ============================
+           LIGHTBOX: ABRIR IMAGEN
+        ============================ */
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.polaroid img').forEach(img => {
+            img.addEventListener('click', () => {
+                indiceActual = parseInt(img.dataset.index);
+                abrirLightbox(indiceActual);
+            });
+        });
+
+        function abrirLightbox(indice) {
+            lightboxImg.src = "fotos_galeria/" + archivosGaleria[indice];
+            lightbox.classList.add('visible');
+            escala = 1; // reset zoom
+            lightboxImg.style.transform = "scale(1)";
+        }
+
+        /* ============================
+           LIGHTBOX: CERRAR
+        ============================ */
+
+        const btnCerrar = document.querySelector('.lightbox-close');
+
+        btnCerrar.addEventListener('click', cerrarLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) cerrarLightbox();
+        });
+
+        function cerrarLightbox() {
+            lightbox.classList.remove('visible');
+        }
+
+        /* ============================
+           LIGHTBOX: FLECHAS ← →
+        ============================ */
+
+        const flechaIzq = document.querySelector('.arrow-left');
+        const flechaDer = document.querySelector('.arrow-right');
+
+        flechaIzq.addEventListener('click', () => {
+            indiceActual = (indiceActual - 1 + archivosGaleria.length) % archivosGaleria.length;
+            abrirLightbox(indiceActual);
+        });
+
+        flechaDer.addEventListener('click', () => {
+            indiceActual = (indiceActual + 1) % archivosGaleria.length;
+            abrirLightbox(indiceActual);
+        });
+
+        /* ============================
+           LIGHTBOX: ZOOM TÁCTIL
+        ============================ */
+
+        let escala = 1;
+        let distanciaInicial = 0;
+
+        lightboxImg.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
+                distanciaInicial = distanciaEntreDedos(e.touches);
+            }
+        });
+
+        lightboxImg.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 2) {
+                const nuevaDistancia = distanciaEntreDedos(e.touches);
+                const factor = nuevaDistancia / distanciaInicial;
+
+                escala = Math.min(Math.max(1, factor), 4); // zoom entre 1x y 4x
+                lightboxImg.style.transform = `scale(${escala})`;
+            }
+        });
+
+        function distanciaEntreDedos(touches) {
+            const dx = touches[0].clientX - touches[1].clientX;
+            const dy = touches[0].clientY - touches[1].clientY;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        /* ============================
+           LIGHTBOX: SWIPE HACIA ABAJO PARA CERRAR
+        ============================ */
+
+        let inicioY = 0;
+
+        lightboxImg.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                inicioY = e.touches[0].clientY;
+            }
+        });
+
+        lightboxImg.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 1) {
+                const actualY = e.touches[0].clientY;
+                const desplazamiento = actualY - inicioY;
+
+                if (desplazamiento > 120 && escala === 1) {
+                    cerrarLightbox();
+                }
+            }
+        });
+
     </script>
 
 </body>

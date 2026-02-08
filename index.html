@@ -284,7 +284,128 @@
             .arrow-left { left: 10px; }
             .arrow-right { right: 10px; }
         }
-    </style>
+
+    /* Mapa y formulario incrustados */
+    .mapa,
+    .formulario {
+        width: 100%;
+        border: 0;
+        border-radius: 10px;
+        margin-top: 20px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    /* Formulario de contacto */
+    #contacto form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    #contacto input,
+    #contacto textarea {
+        padding: 10px 12px;
+        border-radius: 6px;
+        border: 1px solid rgba(212, 180, 131, 0.6);
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        background: rgba(0,0,0,0.25);
+        color: var(--blanco-suave);
+    }
+
+    #contacto input::placeholder,
+    #contacto textarea::placeholder {
+        color: rgba(248, 244, 240, 0.7);
+    }
+
+    #contacto button {
+        margin-top: 5px;
+        padding: 10px 16px;
+        border-radius: 6px;
+        border: none;
+        background: var(--dorado);
+        color: var(--burdeos-oscuro);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    #contacto button:hover {
+        background: #e3c79a;
+        transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer .linea {
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--dorado), transparent);
+        margin-bottom: 10px;
+    }
+
+    footer .logo-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+
+    /* Botón volver arriba */
+    #btnTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: var(--dorado);
+        color: var(--burdeos-oscuro);
+        font-size: 1.4rem;
+        cursor: pointer;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        z-index: 50;
+    }
+
+    #btnTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    #btnTop:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Ajustes responsive extra */
+    @media (max-width: 700px) {
+        .countdown {
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .countdown div {
+            padding: 8px 10px;
+        }
+
+        .countdown span {
+            font-size: 1.2rem;
+        }
+
+        nav a {
+            margin: 0 4px;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+
 </head>
 
 <body>

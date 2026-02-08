@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Pedro y Lara</title>
 
+    <!-- Favicon (pon aquí tu logo como favicon.png en la raíz) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <!-- Tipografías elegantes -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
@@ -14,6 +17,10 @@
             --burdeos-oscuro: #2E0813;
             --dorado: #D4B483;
             --blanco-suave: #F8F4F0;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -31,7 +38,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("11927466.jpg");
+            background-image: url("fotos_web/11927466.jpg");
             background-size: cover;
             background-position: center;
             filter: blur(6px) brightness(0.45);
@@ -43,20 +50,42 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(74, 14, 31, 0.75);
-            padding: 12px 0;
+            background: rgba(74, 14, 31, 0.85);
+            padding: 10px 0;
             text-align: center;
             backdrop-filter: blur(4px);
-            z-index: 10;
+            z-index: 20;
             border-bottom: 1px solid rgba(212, 180, 131, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav .logo-mini {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid var(--dorado);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Great Vibes", cursive;
+            font-size: 1.4rem;
+            color: var(--dorado);
         }
 
         nav a {
             color: var(--dorado);
-            margin: 0 15px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         nav a:hover {
@@ -114,6 +143,14 @@
             margin-top: 40px;
             border-radius: 12px;
             border: 1px solid rgba(212, 180, 131, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         section h2 {
@@ -125,6 +162,53 @@
         section p {
             font-size: 1.3rem;
             line-height: 1.7;
+        }
+
+        /* Galería polaroid */
+        .galeria-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .polaroid {
+            background: #fdfdfd;
+            color: #333;
+            width: 180px;
+            padding: 10px 10px 18px;
+            border-radius: 6px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+            transform: rotate(-2deg);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+
+        .polaroid:nth-child(2n) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid:nth-child(3n) {
+            transform: rotate(-1deg);
+        }
+
+        .polaroid img {
+            width: 100%;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .polaroid-title {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            text-align: center;
+            font-family: "Playfair Display", serif;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.03) rotate(0deg);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.6);
         }
 
         /* Formulario */
@@ -161,7 +245,7 @@
         }
 
         /* Mapa */
-        iframe {
+        iframe.mapa {
             width: 100%;
             height: 350px;
             border: none;
@@ -169,8 +253,71 @@
             margin-top: 20px;
         }
 
+        iframe.formulario {
+            width: 100%;
+            border-radius: 12px;
+            border: none;
+            margin-top: 20px;
+        }
+
+        /* Botón volver arriba */
+        #btnTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--dorado);
+            color: var(--burdeos);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 30;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #btnTop.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            padding: 20px 10px;
+            text-align: center;
+            color: var(--blanco-suave);
+            font-size: 0.9rem;
+        }
+
+        footer .linea {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--dorado), transparent);
+            margin-bottom: 10px;
+        }
+
+        footer .logo-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
         /* Responsive */
         @media (max-width: 700px) {
+
+            nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
 
             .title {
                 font-size: 3.5rem;
@@ -192,8 +339,12 @@
             }
 
             nav a {
-                margin: 0 6px;
-                font-size: 0.85rem;
+                margin: 0 4px;
+                font-size: 0.8rem;
+            }
+
+            .polaroid {
+                width: 140px;
             }
         }
     </style>
@@ -203,10 +354,14 @@
 
     <!-- Menú -->
     <nav>
+        <div class="logo-mini">
+            <div class="logo-circle">P&L</div>
+        </div>
         <a href="#info">Información</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#alojamientos">Alojamientos</a>
         <a href="#nosotros">Nosotros</a>
+        <a href="#galeria">Galería</a>
         <a href="#confirmacion">Confirmación</a>
         <a href="#contacto">Contacto</a>
     </nav>
@@ -224,42 +379,56 @@
     </div>
 
     <!-- Secciones -->
-    <section id="info">
+    <section id="info" class="animate">
         <h2>Información</h2>
         <p>Aquí podrás encontrar todos los detalles sobre nuestro gran día.</p>
     </section>
 
-    <section id="ubicacion">
+    <section id="ubicacion" class="animate">
         <h2>Ubicación</h2>
         <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
 
         <!-- Mapa real -->
         <iframe 
+            class="mapa"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.184763566113!2d-5.660948!3d40.127948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e4a4e3a14d0f%3A0x8e7c2e3c8c0f2b0!2sParador%20de%20Jarandilla%20de%20la%20Vera!5e0!3m2!1ses!2ses!4v1700000000000"
             allowfullscreen=""
             loading="lazy">
         </iframe>
     </section>
 
-    <section id="alojamientos">
+    <section id="alojamientos" class="animate">
         <h2>Alojamientos</h2>
         <p>Recomendaciones de hoteles y alojamientos cercanos.</p>
     </section>
 
-    <section id="nosotros">
+    <section id="nosotros" class="animate">
         <h2>Nosotros</h2>
         <p>Nuestra historia y momentos especiales que queremos compartir contigo.</p>
     </section>
 
-    <section id="confirmacion">
+    <section id="galeria" class="animate">
+        <h2>Galería</h2>
+        <p>Algunos momentos especiales que queremos compartir contigo.</p>
+
+        <div class="galeria-grid" id="galeriaGrid">
+            <!-- Las fotos se generan por JavaScript a partir de la lista de archivos -->
+        </div>
+    </section>
+
+    <section id="confirmacion" class="animate">
         <h2>Confirmación</h2>
         <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
 
         <!-- Google Form incrustado -->
-        <iframe src="https://forms.gle/gWb4JKrvTpE8drZbA" height="600"></iframe>
+        <iframe 
+            class="formulario"
+            src="https://forms.gle/gWb4JKrvTpE8drZbA"
+            height="600">
+        </iframe>
     </section>
 
-    <section id="contacto">
+    <section id="contacto" class="animate">
         <h2>Contacto</h2>
         <p>Si tienes cualquier duda, puedes escribirnos directamente desde aquí.</p>
 
@@ -272,8 +441,21 @@
         </form>
     </section>
 
-    <!-- Script del contador -->
+    <!-- Footer -->
+    <footer>
+        <div class="linea"></div>
+        <div class="logo-footer">
+            <div class="logo-circle">P&L</div>
+        </div>
+        <div>© Boda de Pedro y Lara · 17 · 10 · 2026</div>
+    </footer>
+
+    <!-- Botón volver arriba -->
+    <button id="btnTop" aria-label="Volver arriba">↑</button>
+
+    <!-- Script del contador + animaciones + galería -->
     <script>
+        // Contador
         function actualizarContador() {
             const objetivo = new Date("2026-10-17T12:00:00");
             const ahora = new Date();
@@ -297,6 +479,63 @@
 
         setInterval(actualizarContador, 1000);
         actualizarContador();
+
+        // Animaciones al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('section.animate').forEach(sec => observer.observe(sec));
+
+        // Botón volver arriba
+        const btnTop = document.getElementById('btnTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btnTop.classList.add('visible');
+            } else {
+                btnTop.classList.remove('visible');
+            }
+        });
+
+        btnTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Galería polaroid
+        // Añade aquí los nombres de los archivos que pongas en /fotos_galeria/
+        // Ejemplo: ["foto1.jpg", "playa_2023.jpg", "nosotros_boda.png"]
+        const archivosGaleria = [
+            // Rellena con tus ficheros reales, por ejemplo:
+            // "foto1.jpg",
+            // "playa_2023.jpg"
+        ];
+
+        const galeriaGrid = document.getElementById('galeriaGrid');
+
+        archivosGaleria.forEach(nombreArchivo => {
+            const ruta = "fotos_galeria/" + nombreArchivo;
+            const sinExtension = nombreArchivo.replace(/\.[^/.]+$/, "");
+            const titulo = sinExtension.replace(/_/g, " ");
+
+            const card = document.createElement('div');
+            card.className = 'polaroid';
+
+            const img = document.createElement('img');
+            img.src = ruta;
+            img.alt = titulo;
+
+            const caption = document.createElement('div');
+            caption.className = 'polaroid-title';
+            caption.textContent = titulo;
+
+            card.appendChild(img);
+            card.appendChild(caption);
+            galeriaGrid.appendChild(card);
+        });
     </script>
 
 </body>

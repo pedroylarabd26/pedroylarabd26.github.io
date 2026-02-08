@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Pedro y Lara</title>
 
-    <!-- Tipografía elegante -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tipografías elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -75,8 +75,9 @@
         }
 
         .title {
-            font-size: 4rem;
-            letter-spacing: 3px;
+            font-family: "Great Vibes", cursive;
+            font-size: 5rem;
+            letter-spacing: 2px;
             text-shadow: 2px 2px 6px black;
             margin-bottom: 40px;
             color: var(--dorado);
@@ -170,16 +171,29 @@
 
         /* Responsive */
         @media (max-width: 700px) {
+
             .title {
-                font-size: 2.8rem;
+                font-size: 3.5rem;
             }
+
             .countdown {
-                flex-direction: column;
-                gap: 10px;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                gap: 8px;
+                font-size: 1rem;
             }
+
+            .countdown div {
+                padding: 8px 10px;
+            }
+
+            .countdown span {
+                font-size: 1.2rem;
+            }
+
             nav a {
-                margin: 0 8px;
-                font-size: 0.9rem;
+                margin: 0 6px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -239,8 +253,10 @@
 
     <section id="confirmacion">
         <h2>Confirmación</h2>
-        <p>Muy pronto podrás confirmar tu asistencia desde aquí.</p>
-        <p><strong>Envíame el enlace del Google Form y lo integro.</strong></p>
+        <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
+
+        <!-- Google Form incrustado -->
+        <iframe src="https://forms.gle/gWb4JKrvTpE8drZbA" height="600"></iframe>
     </section>
 
     <section id="contacto">

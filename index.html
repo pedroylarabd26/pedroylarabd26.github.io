@@ -9,10 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --burdeos: #4A0E1F;
+            --burdeos-oscuro: #2E0813;
+            --dorado: #D4B483;
+            --blanco-suave: #F8F4F0;
+        }
+
         body {
             margin: 0;
             font-family: "Playfair Display", serif;
-            color: white;
+            color: var(--blanco-suave);
             overflow-x: hidden;
         }
 
@@ -27,7 +34,7 @@
             background-image: url("11927466.jpg");
             background-size: cover;
             background-position: center;
-            filter: blur(6px) brightness(0.6);
+            filter: blur(6px) brightness(0.45);
             z-index: -1;
         }
 
@@ -36,15 +43,16 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0,0,0,0.55);
+            background: rgba(74, 14, 31, 0.75);
             padding: 12px 0;
             text-align: center;
             backdrop-filter: blur(4px);
             z-index: 10;
+            border-bottom: 1px solid rgba(212, 180, 131, 0.4);
         }
 
         nav a {
-            color: white;
+            color: var(--dorado);
             margin: 0 15px;
             text-decoration: none;
             font-weight: 600;
@@ -52,7 +60,7 @@
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: white;
         }
 
         /* Hero principal */
@@ -71,6 +79,7 @@
             letter-spacing: 3px;
             text-shadow: 2px 2px 6px black;
             margin-bottom: 40px;
+            color: var(--dorado);
         }
 
         /* Contador */
@@ -82,15 +91,16 @@
         }
 
         .countdown div {
-            background: rgba(0,0,0,0.4);
+            background: rgba(74, 14, 31, 0.6);
             padding: 15px 20px;
             border-radius: 10px;
-            text-shadow: 1px 1px 4px black;
+            border: 1px solid rgba(212, 180, 131, 0.4);
         }
 
         .countdown span {
             display: block;
             font-size: 2.5rem;
+            color: var(--dorado);
         }
 
         /* Secciones */
@@ -99,15 +109,16 @@
             max-width: 900px;
             margin: auto;
             text-align: center;
-            background: rgba(0,0,0,0.45);
+            background: rgba(74, 14, 31, 0.55);
             margin-top: 40px;
             border-radius: 12px;
+            border: 1px solid rgba(212, 180, 131, 0.3);
         }
 
         section h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 4px black;
+            color: var(--dorado);
         }
 
         section p {
@@ -126,23 +137,35 @@
         input, textarea {
             padding: 12px;
             border-radius: 8px;
-            border: none;
+            border: 1px solid var(--dorado);
             font-size: 1rem;
             font-family: "Playfair Display", serif;
+            background: rgba(255,255,255,0.85);
+            color: black;
         }
 
         button {
             padding: 12px;
-            background: #ffffffcc;
+            background: var(--dorado);
             border: none;
             border-radius: 8px;
             font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
+            color: var(--burdeos);
         }
 
         button:hover {
-            background: #ffffffee;
+            background: #e8cda3;
+        }
+
+        /* Mapa */
+        iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            border-radius: 12px;
+            margin-top: 20px;
         }
 
         /* Responsive */
@@ -194,7 +217,14 @@
 
     <section id="ubicacion">
         <h2>Ubicación</h2>
-        <p>Próximamente añadiremos la dirección exacta y cómo llegar.</p>
+        <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
+
+        <!-- Mapa real -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.184763566113!2d-5.660948!3d40.127948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e4a4e3a14d0f%3A0x8e7c2e3c8c0f2b0!2sParador%20de%20Jarandilla%20de%20la%20Vera!5e0!3m2!1ses!2ses!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
     </section>
 
     <section id="alojamientos">
@@ -210,6 +240,7 @@
     <section id="confirmacion">
         <h2>Confirmación</h2>
         <p>Muy pronto podrás confirmar tu asistencia desde aquí.</p>
+        <p><strong>Envíame el enlace del Google Form y lo integro.</strong></p>
     </section>
 
     <section id="contacto">

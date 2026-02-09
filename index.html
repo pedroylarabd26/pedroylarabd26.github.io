@@ -11,6 +11,9 @@
     <!-- Tipografías -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+
     <style>
         :root {
             --burdeos: #4A0E1F;
@@ -625,6 +628,7 @@
             img.src = ruta;
             img.alt = titulo;
             img.dataset.index = index; // Para saber qué foto abrir
+            img.loading = "lazy";
 
             const caption = document.createElement('div');
             caption.className = 'polaroid-title';

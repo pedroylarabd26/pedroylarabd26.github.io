@@ -460,3 +460,68 @@
         padding-top: 10px;
     }
 }
+
+/* ===== MARCO ELEGANTE PARA SECCIONES ===== */
+
+section {
+    position: relative;
+    padding: 80px 20px;
+}
+
+/* Esquinas superiores */
+section::before,
+section::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--dorado);
+    opacity: 0.7;
+}
+
+/* Esquina superior izquierda */
+section::before {
+    top: 10px;
+    left: 10px;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 6px 0 0 0;
+}
+
+/* Esquina superior derecha */
+section::after {
+    top: 10px;
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 6px 0 0;
+}
+
+/* Esquinas inferiores */
+section .corner-bottom-left,
+section .corner-bottom-right {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--dorado);
+    opacity: 0.7;
+}
+
+/* Esquina inferior izquierda */
+section .corner-bottom-left {
+    bottom: 10px;
+    left: 10px;
+    border-right: none;
+    border-top: none;
+    border-radius: 0 0 0 6px;
+}
+
+/* Esquina inferior derecha */
+section .corner-bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-left: none;
+    border-top: none;
+    border-radius: 0 0 6px 0;
+}

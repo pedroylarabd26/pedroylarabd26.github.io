@@ -288,21 +288,23 @@
     }
 
     nav a {
-        display: none;
+        display: none !important;
         width: 100%;
         padding: 12px 20px;
         text-align: left;
         background: rgba(74, 14, 31, 0.95);
         border-bottom: 1px solid rgba(212, 180, 131, 0.3);
+        flex-shrink: 0;
     }
 
     .menu-toggle {
         display: block;
-        z-index: 30;
+        z-index: 50;
+        margin-right: 10px;
     }
 
     nav.expanded a {
-        display: block;
+        display: block !important;
     }
 
     /* Ajustes visuales */
@@ -316,6 +318,9 @@
         height: 55vh;
         padding-top: 10px;
     }
+
+    /* Lightbox Movil */
+    .lightbox-close { top: 10px; right: 10px; }
 }
 
 

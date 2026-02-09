@@ -275,13 +275,46 @@
             right: 20px;
         }
 
-        @media (max-width: 700px) {
-            nav { flex-wrap: wrap; gap: 10px; }
-            .title { font-size: 3.5rem; }
-            .polaroid { width: 140px; }
-            .arrow-left { left: 10px; }
-            .arrow-right { right: 10px; }
-        }
+@media (max-width: 700px) {
+
+    /* Menú móvil */
+    nav {
+        justify-content: space-between;
+        padding: 10px 15px;
+        gap: 0;
+        flex-wrap: nowrap;
+    }
+
+    nav a {
+        display: none;
+        width: 100%;
+        padding: 12px 20px;
+        text-align: left;
+        background: rgba(74, 14, 31, 0.95);
+        border-bottom: 1px solid rgba(212, 180, 131, 0.3);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav.expanded a {
+        display: block;
+    }
+
+    /* Ajustes visuales */
+    .title { font-size: 3.5rem; }
+    .polaroid { width: 140px; }
+    .arrow-left { left: 10px; }
+    .arrow-right { right: 10px; }
+
+    /* Hero más pequeño */
+    .hero {
+        height: 55vh;
+        padding-top: 10px;
+    }
+}
+
 
     /* Mapa y formulario incrustados */
     .mapa,
@@ -423,49 +456,12 @@
     padding: 5px 15px;
 }
 
-@media (max-width: 700px) {
-
-    nav {
-        justify-content: space-between;
-        padding: 10px 15px;
-        gap: 0;
-    }
-
-    /* Ocultar enlaces */
-    nav a {
-        display: none;
-        width: 100%;
-        padding: 12px 20px;
-        text-align: left;
-        background: rgba(74, 14, 31, 0.95);
-        border-bottom: 1px solid rgba(212, 180, 131, 0.3);
-    }
-
-    /* Mostrar icono hamburguesa */
-    .menu-toggle {
-        display: block;
-    }
-
-    /* Mostrar enlaces al abrir menú */
-    nav.expanded a {
-        display: block;
-    }
-}
-
-
-
-@media (max-width: 700px) {
-    .hero {
-        height: 55vh;
-        padding-top: 10px;
-    }
-}
 
 /* ===== MARCO ELEGANTE PARA SECCIONES ===== */
 
 section {
     position: relative;
-    padding: 80px 20px;
+    padding: 90px 25px;
 }
 
 /* Esquinas superiores */

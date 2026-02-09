@@ -260,7 +260,7 @@
             user-select: none;
             padding: 10px;
         }
-        .arrow {
+        .flecha {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -272,8 +272,14 @@
             text-shadow: 0 0 10px rgba(0,0,0,0.8);
         }
 
-        .arrow-left { left: -60px; }
-        .arrow-right { right: -60px; }
+        .flecha.izquierda {
+            left: 20px;
+        }
+
+        .flecha.derecha {
+            right: 20px;
+        }
+
 
         @media (max-width: 700px) {
             nav { flex-wrap: wrap; gap: 10px; }

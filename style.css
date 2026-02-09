@@ -34,7 +34,7 @@
 
         /* Menú */
         nav {
-            position: fixed;
+            position: absolute;
             top: 0;
             width: 100%;
             background: rgba(74, 14, 31, 0.85);
@@ -44,9 +44,10 @@
             z-index: 20;
             border-bottom: 1px solid rgba(212, 180, 131, 0.4);
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 25px;
+            gap: 10px;
+            padding: 10px 15px;
         }
 
         nav .logo-mini {
@@ -283,6 +284,7 @@
         padding: 10px 15px;
         gap: 0;
         flex-wrap: nowrap;
+        align-items: center;
     }
 
     nav a {
@@ -296,6 +298,7 @@
 
     .menu-toggle {
         display: block;
+        z-index: 30;
     }
 
     nav.expanded a {

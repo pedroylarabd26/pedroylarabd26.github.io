@@ -46,7 +46,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
 }
 
 nav .logo-mini {
@@ -68,15 +67,21 @@ nav .logo-mini {
     color: var(--dorado);
 }
 
-nav a {
+/* Enlaces del menú agrupados */
+.menu-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu-links a {
     color: var(--dorado);
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    flex-shrink: 0;
 }
 
-nav a:hover {
+.menu-links a:hover {
     color: white;
 }
 
@@ -86,8 +91,6 @@ nav a:hover {
     font-size: 2rem;
     color: var(--dorado);
     cursor: pointer;
-    margin-left: auto;
-    margin-right: 10px;
     padding: 5px 15px;
     z-index: 50;
 }
@@ -187,7 +190,6 @@ section::after {
     opacity: 0.7;
 }
 
-/* Esquina superior izquierda */
 section::before {
     top: 10px;
     left: 10px;
@@ -196,7 +198,6 @@ section::before {
     border-radius: 6px 0 0 0;
 }
 
-/* Esquina superior derecha */
 section::after {
     top: 10px;
     right: 10px;
@@ -205,7 +206,6 @@ section::after {
     border-radius: 0 6px 0 0;
 }
 
-/* Esquinas inferiores */
 .corner-bottom-left,
 .corner-bottom-right {
     content: "";
@@ -216,7 +216,6 @@ section::after {
     opacity: 0.7;
 }
 
-/* Esquina inferior izquierda */
 .corner-bottom-left {
     bottom: 10px;
     left: 10px;
@@ -225,7 +224,6 @@ section::after {
     border-radius: 0 0 0 6px;
 }
 
-/* Esquina inferior derecha */
 .corner-bottom-right {
     bottom: 10px;
     right: 10px;
@@ -336,7 +334,6 @@ section::after {
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* Flechas */
 .lightbox-arrow {
     position: absolute;
     top: 50%;
@@ -358,34 +355,49 @@ section::after {
 @media (max-width: 700px) {
 
     /* Menú móvil */
-    nav {
-        justify-content: space-between;
-        padding: 10px 15px;
-        gap: 0;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
-
-    nav a {
-        display: none !important;
-        width: 100%;
-        padding: 12px 20px;
-        text-align: left;
-        background: rgba(74, 14, 31, 0.95);
-        border-bottom: 1px solid rgba(212, 180, 131, 0.3);
-    }
-
-    nav.expanded a {
-        display: block !important;
-    }
-
     .menu-toggle {
         display: block;
+    }
+
+    .menu-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(74, 14, 31, 0.95);
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    nav.expanded .menu-links {
+        display: flex;
+    }
+
+    .menu-links a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(212, 180, 131, 0.3);
+        width: 100%;
+        text-align: left;
     }
 
     /* Hero */
     .title { font-size: 3.5rem; }
     .hero { height: 55vh; padding-top: 10px; }
+
+    /* Contador responsive */
+    .countdown {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .countdown div {
+        padding: 8px 12px;
+        min-width: 80px;
+    }
+
+    .countdown span {
+        font-size: 1.4rem;
+    }
 
     /* Polaroids */
     .polaroid { width: 140px; }

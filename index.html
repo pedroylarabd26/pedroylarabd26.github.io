@@ -16,7 +16,6 @@
 
     <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -26,6 +25,7 @@
         <div class="logo-mini">
             <div class="logo-circle">P&L</div>
         </div>
+
         <div id="menuToggle" class="menu-toggle">☰</div>
 
         <a href="#info">Información</a>
@@ -53,7 +53,7 @@
     <section id="info" class="animate">
         <h2>Información</h2>
         <p>Aquí podrás encontrar todos los detalles sobre nuestro gran día.</p>
-        
+
         <div class="corner-bottom-left"></div>
         <div class="corner-bottom-right"></div>
     </section>
@@ -63,14 +63,13 @@
         <h2>Ubicación</h2>
         <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
 
-        <!-- Mapa real -->
         <iframe 
             class="mapa"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.184763566113!2d-5.660948!3d40.127948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e4a4e3a14d0f%3A0x8e7c2e3c8c0f2b0!2sParador%20de%20Jarandilla%20de%20la%20Vera!5e0!3m2!1ses!2ses!4v1700000000000"
             allowfullscreen=""
             loading="lazy">
         </iframe>
-                
+
         <div class="corner-bottom-left"></div>
         <div class="corner-bottom-right"></div>
     </section>
@@ -79,7 +78,7 @@
     <section id="alojamientos" class="animate">
         <h2>Alojamientos</h2>
         <p>Recomendaciones de hoteles y alojamientos cercanos.</p>
-                
+
         <div class="corner-bottom-left"></div>
         <div class="corner-bottom-right"></div>
     </section>
@@ -88,7 +87,7 @@
     <section id="nosotros" class="animate">
         <h2>Nosotros</h2>
         <p>Nuestra historia y momentos especiales que queremos compartir contigo.</p>
-                
+
         <div class="corner-bottom-left"></div>
         <div class="corner-bottom-right"></div>
     </section>
@@ -98,10 +97,8 @@
         <h2>Galería</h2>
         <p>Algunos momentos especiales que queremos compartir contigo.</p>
 
-        <div class="galeria-grid" id="galeriaGrid">
-            <!-- Las fotos se generan automáticamente desde JavaScript -->
-        </div>
-                
+        <div class="galeria-grid" id="galeriaGrid"></div>
+
         <div class="corner-bottom-left"></div>
         <div class="corner-bottom-right"></div>
     </section>
@@ -109,14 +106,9 @@
     <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox-overlay">
         <div class="lightbox-content">
-            <!-- Botón cerrar -->
             <span class="lightbox-close">×</span>
-
-            <!-- Flechas -->
             <span class="lightbox-arrow arrow-left">❮</span>
             <span class="lightbox-arrow arrow-right">❯</span>
-
-            <!-- Imagen ampliada -->
             <img id="lightbox-img" src="" alt="">
         </div>
     </div>
@@ -126,13 +118,12 @@
         <h2>Confirmación</h2>
         <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
 
-        <!-- Google Form incrustado -->
         <iframe 
             class="formulario"
             src="https://forms.office.com/r/qKpgsLNQUu"
             height="600">
         </iframe>
-                
+
         <div class="corner-bottom-left"></div>
         <div class="corner-bottom-right"></div>
     </section>
@@ -142,14 +133,17 @@
         <h2>Contacto</h2>
         <p>Si tienes cualquier duda, puedes escribirnos directamente desde aquí.</p>
 
-        <!-- Formulario de contacto -->
-        <form action="mailto:pedro.dc93@gmail.com?subject=Contacto%20Web%20Boda" method="POST" enctype="text/plain">
+        <form action="https://formsubmit.co/pedro.dc93@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de la boda">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
             <input type="text" name="Nombre" placeholder="Tu nombre" required>
             <input type="email" name="Email" placeholder="Tu correo electrónico" required>
             <textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
             <button type="submit">Enviar</button>
         </form>
-                
+
         <div class="corner-bottom-left"></div>
         <div class="corner-bottom-right"></div>
     </section>

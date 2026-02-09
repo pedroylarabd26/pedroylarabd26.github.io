@@ -254,16 +254,6 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 3rem;
-            color: var(--dorado);
-            cursor: pointer;
-            user-select: none;
-            padding: 10px;
-        }
-        .flecha {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             font-size: 4rem;
             color: #ffffff;
             cursor: pointer;
@@ -272,14 +262,18 @@
             text-shadow: 0 0 10px rgba(0,0,0,0.8);
         }
 
-        .flecha.izquierda {
+        .lightbox-content {
+            position: relative;
+            z-index: 2001;
+        }
+
+        .arrow-left {
             left: 20px;
         }
 
-        .flecha.derecha {
+        .arrow-right {
             right: 20px;
         }
-
 
         @media (max-width: 700px) {
             nav { flex-wrap: wrap; gap: 10px; }
@@ -417,3 +411,50 @@
             font-size: 0.8rem;
         }
     }
+
+/* ===== MENÚ MÓVIL ===== */
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: var(--dorado);
+    cursor: pointer;
+    margin-left: auto;
+    padding: 5px 15px;
+}
+
+@media (max-width: 700px) {
+
+    nav {
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    nav a {
+        display: none;
+        width: 100%;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(212, 180, 131, 0.3);
+        background: rgba(74, 14, 31, 0.9);
+    }
+
+    nav a.visible {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav.expanded a {
+        display: block;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .hero {
+        height: 70vh;
+        padding-top: 40px;
+    }
+}

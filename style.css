@@ -428,6 +428,7 @@
     nav {
         justify-content: space-between;
         padding: 10px 15px;
+        gap: 0;
     }
 
     nav a {
@@ -448,13 +449,14 @@
 
     nav.expanded a {
         display: block;
+        padding-left: 20px;
     }
 }
 
 
 @media (max-width: 700px) {
     .hero {
-        height: 70vh;
-        padding-top: 40px;
+        height: 60vh;
+        padding-top: 20px;
     }
 }

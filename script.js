@@ -2,7 +2,8 @@
    CONTADOR
 ============================ */
 function actualizarContador() {
-    const objetivo = new Date("2026-10-17T12:00:00");
+    // Fecha en UTC para evitar problemas de horario de invierno/verano
+    const objetivo = new Date("2026-10-17T12:00:00Z");
     const ahora = new Date();
     const diferencia = objetivo - ahora;
 
@@ -32,6 +33,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Evita que se repita la animación
         }
     });
 }, { threshold: 0.2 });
@@ -67,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const galeriaGrid = document.getElementById('galeriaGrid');
     let indiceActual = 0;
+    let escala = 1; // Declarada arriba para evitar variables implícitas
 
     archivosGaleria.forEach((nombreArchivo, index) => {
         const ruta = "fotos_galeria/" + nombreArchivo;
@@ -137,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Zoom táctil */
-    let escala = 1;
     let distanciaInicial = 0;
 
     lightboxImg.addEventListener('touchstart', (e) => {
@@ -191,12 +193,20 @@ const nav = document.querySelector("nav");
 
 menuToggle.addEventListener("click", () => {
     nav.classList.toggle("expanded");
+
+    // Accesibilidad: cambiar aria-label dinámicamente
+    if (nav.classList.contains("expanded")) {
+        menuToggle.setAttribute("aria-label", "Cerrar menú");
+    } else {
+        menuToggle.setAttribute("aria-label", "Abrir menú");
+    }
 });
 
 /* Cerrar menú al pulsar un enlace */
 document.querySelectorAll("nav a").forEach(enlace => {
     enlace.addEventListener("click", () => {
         nav.classList.remove("expanded");
+        menuToggle.setAttribute("aria-label", "Abrir menú");
     });
 });
 
@@ -206,6 +216,10 @@ document.querySelectorAll("nav a").forEach(enlace => {
 let ultimaPos = 0;
 
 window.addEventListener("scroll", () => {
+
+    // Si el menú está abierto, no ocultarlo
+    if (nav.classList.contains("expanded")) return;
+
     const actual = window.scrollY;
 
     if (actual > ultimaPos && actual > 80) {

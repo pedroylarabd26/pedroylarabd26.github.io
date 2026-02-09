@@ -1,3 +1,6 @@
+/* ============================
+   VARIABLES
+============================ */
 :root {
     --burdeos: #4A0E1F;
     --burdeos-oscuro: #2E0813;
@@ -46,6 +49,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: transform 0.25s ease;
 }
 
 nav .logo-mini {
@@ -67,7 +71,7 @@ nav .logo-mini {
     color: var(--dorado);
 }
 
-/* Enlaces del menú agrupados */
+/* Enlaces del menú */
 .menu-links {
     display: flex;
     gap: 20px;
@@ -122,9 +126,11 @@ nav .logo-mini {
 ============================ */
 .countdown {
     display: flex;
+    flex-wrap: wrap;
     gap: 25px;
     font-size: 1.8rem;
     font-weight: bold;
+    justify-content: center;
 }
 
 .countdown div {
@@ -132,6 +138,8 @@ nav .logo-mini {
     padding: 15px 20px;
     border-radius: 10px;
     border: 1px solid rgba(212, 180, 131, 0.4);
+    min-width: 120px;
+    text-align: center;
 }
 
 .countdown span {
@@ -316,22 +324,24 @@ section::after {
     touch-action: none;
 }
 
+/* X visible SIEMPRE en móvil */
 .lightbox-close {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: 10px;
+    right: 10px;
     background: var(--dorado);
     color: var(--burdeos);
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    z-index: 2000;
 }
 
 .lightbox-arrow {
@@ -350,11 +360,10 @@ section::after {
 .arrow-right { right: 20px; }
 
 /* ============================
-   RESPONSIVE MÓVIL
+   MENÚ MÓVIL ELEGANTE
 ============================ */
 @media (max-width: 700px) {
 
-    /* Menú móvil */
     .menu-toggle {
         display: block;
     }
@@ -363,9 +372,10 @@ section::after {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: rgba(74, 14, 31, 0.95);
-        margin-top: 10px;
-        padding-bottom: 10px;
+        background: rgba(74, 14, 31, 0.92);
+        backdrop-filter: blur(6px);
+        padding: 20px 0;
+        animation: slideDown 0.3s ease;
     }
 
     nav.expanded .menu-links {
@@ -373,30 +383,34 @@ section::after {
     }
 
     .menu-links a {
-        padding: 12px 20px;
-        border-bottom: 1px solid rgba(212, 180, 131, 0.3);
+        padding: 14px 20px;
         width: 100%;
-        text-align: left;
+        text-align: center;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(212, 180, 131, 0.2);
+        color: var(--dorado);
+    }
+
+    .menu-links a:last-child {
+        border-bottom: none;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     /* Hero */
     .title { font-size: 3.5rem; }
     .hero { height: 55vh; padding-top: 10px; }
 
-    /* Contador responsive */
-    .countdown {
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-    }
-
+    /* Contador móvil en dos filas */
     .countdown div {
-        padding: 8px 12px;
-        min-width: 80px;
+        min-width: 45%;
     }
 
     .countdown span {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     /* Polaroids */
@@ -405,12 +419,6 @@ section::after {
     /* Flechas */
     .arrow-left { left: 10px; }
     .arrow-right { right: 10px; }
-
-    /* Lightbox */
-    .lightbox-close {
-        top: 10px;
-        right: 10px;
-    }
 }
 
 /* ============================

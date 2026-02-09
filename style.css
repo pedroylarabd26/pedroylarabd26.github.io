@@ -537,4 +537,24 @@ footer .logo-footer {
 /* ============================
    Botón elegante para enlaces externos
 ============================ */
-.boton-enlace { display: inline-block; margin-top: 20px; padding: 12px 22px; background: var(--dorado); color: var(--burdeos-oscuro); font-weight: 600; font-size: 1.1rem; border-radius: 8px; text-decoration: none; transition: background 0.2s ease, transform 0.2s ease; } .boton-enlace:hover { background: #e3c79a; transform: translateY(-2px); }
+
+.boton-enlace {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 22px;
+    background: var(--dorado);
+    color: var(--burdeos-oscuro);
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* espacio entre icono y texto */
+}
+
+.boton-enlace:hover {
+    background: #e3c79a;
+    transform: translateY(-2px);
+}

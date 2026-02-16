@@ -149,20 +149,24 @@ nav .logo-mini {
 }
 
 /* ============================
-   SECCIONES
+   SECCIONES (FONDO CONTINUO)
 ============================ */
 section {
+    width: 100%;
     padding: 90px 25px;
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
-    background: rgba(74, 14, 31, 0.55);
-    margin-top: 40px;
-    border-radius: 12px;
-    border: 1px solid rgba(212, 180, 131, 0.3);
+
+    /* Fondo morado continuo */
+    background: rgba(74, 14, 31, 0.45);
+
+    border: none;
+    border-radius: 0;
+    margin: 0;
+
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+
+    text-align: center;
 }
 
 section.visible {
@@ -181,63 +185,10 @@ section p {
     line-height: 1.7;
 }
 
-/* ============================
-   MARCO ELEGANTE
-============================ */
-section {
-    position: relative;
-}
-
-section::before,
-section::after {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--dorado);
-    opacity: 0.7;
-}
-
-section::before {
-    top: 10px;
-    left: 10px;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 6px 0 0 0;
-}
-
-section::after {
-    top: 10px;
-    right: 10px;
-    border-left: none;
-    border-bottom: none;
-    border-radius: 0 6px 0 0;
-}
-
-.corner-bottom-left,
-.corner-bottom-right {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--dorado);
-    opacity: 0.7;
-}
-
-.corner-bottom-left {
-    bottom: 10px;
-    left: 10px;
-    border-right: none;
-    border-top: none;
-    border-radius: 0 0 0 6px;
-}
-
-.corner-bottom-right {
-    bottom: 10px;
-    right: 10px;
-    border-left: none;
-    border-top: none;
-    border-radius: 0 0 6px 0;
+/* Contenedor interno */
+section .contenido {
+    max-width: 900px;
+    margin: auto;
 }
 
 /* ============================
@@ -324,7 +275,6 @@ section::after {
     touch-action: none;
 }
 
-/* X visible SIEMPRE en móvil */
 .lightbox-close {
     position: absolute;
     top: 10px;
@@ -360,9 +310,13 @@ section::after {
 .arrow-right { right: 20px; }
 
 /* ============================
-   MENÚ MÓVIL ELEGANTE
+   MENÚ MÓVIL
 ============================ */
 @media (max-width: 700px) {
+
+    section { 
+        background: rgba(74, 14, 31, 0.35); 
+    }
 
     .menu-toggle {
         display: block;
@@ -400,11 +354,9 @@ section::after {
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Hero */
     .title { font-size: 3.5rem; }
     .hero { height: 55vh; padding-top: 10px; }
 
-    /* Contador móvil en dos filas */
     .countdown div {
         min-width: 45%;
     }
@@ -413,10 +365,8 @@ section::after {
         font-size: 1.6rem;
     }
 
-    /* Polaroids */
     .polaroid { width: 140px; }
 
-    /* Flechas */
     .arrow-left { left: 10px; }
     .arrow-right { right: 10px; }
 }
@@ -510,14 +460,16 @@ section::after {
 }
 
 /* ============================
-   FOOTER
+   FOOTER (FONDO MORADO CONTINUO)
 ============================ */
 footer {
-    margin-top: 60px;
-    padding: 20px 10px;
+    padding: 40px 10px;
     text-align: center;
     color: var(--blanco-suave);
     font-size: 0.9rem;
+
+    /* Fondo morado continuo hasta el final */
+    background: rgba(74, 14, 31, 0.45);
 }
 
 footer .linea {
@@ -537,7 +489,6 @@ footer .logo-footer {
 /* ============================
    Botón elegante para enlaces externos
 ============================ */
-
 .boton-enlace {
     display: inline-block;
     margin-top: 20px;
@@ -551,7 +502,7 @@ footer .logo-footer {
     transition: background 0.2s ease, transform 0.2s ease;
     display: inline-flex;
     align-items: center;
-    gap: 8px; /* espacio entre icono y texto */
+    gap: 8px;
 }
 
 .boton-enlace:hover {

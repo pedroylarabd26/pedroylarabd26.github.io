@@ -172,32 +172,9 @@ nav .logo-mini {
 
 /* ============================
    EFECTO REVEAL AL CURSOR
-   (las letras "surgen" al pasar)
 ============================ */
 .reveal-cursor {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Capa que cubre el texto y se va "borrando" con clip-path al mover el cursor */
-.reveal-cursor::after {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    color: transparent;
-    -webkit-text-stroke: 0.5px rgba(212,180,131,0.5);
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-
-/* Glow que sigue el cursor sobre textos reveal */
-.reveal-glow {
-    background: radial-gradient(circle 120px at var(--cx, 50%) var(--cy, 50%),
-        rgba(212,180,131,0.35) 0%,
-        transparent 70%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
+    cursor: default;
 }
 
 /* ============================

@@ -39,39 +39,26 @@ document.addEventListener('mousemove', (e) => {
    EFECTO "LETRA SURGE" AL MOVER CURSOR
    Ilumina el texto al pasar el ratón
 ============================ */
+/* ============================
+   EFECTO "LETRA SURGE" AL MOVER CURSOR
+   Ilumina el elemento completo al pasar el ratón
+   (sin fragmentar el texto en spans para no romper el layout)
+============================ */
 document.querySelectorAll('.reveal-cursor').forEach(el => {
-    // Dividimos el texto en letras individuales con spans
-    const textoOriginal = el.textContent;
-    el.innerHTML = textoOriginal.split('').map(letra =>
-        letra === ' '
-            ? ' '
-            : `<span class="letra" style="opacity:0.35;transition:opacity 0.4s ease,text-shadow 0.4s ease">${letra}</span>`
-    ).join('');
+    // Arranca con opacidad reducida
+    el.style.transition = 'opacity 0.6s ease, text-shadow 0.6s ease';
+    el.style.opacity = '0.55';
 
-    // Revelamos todas las letras del elemento al entrar en él
+    // Al entrar: revela completamente con brillo
     el.addEventListener('mouseenter', () => {
-        el.querySelectorAll('.letra').forEach((span, i) => {
-            setTimeout(() => {
-                span.style.opacity = '1';
-                span.style.textShadow = '0 0 20px rgba(212,180,131,0.7)';
-            }, i * 35);
-        });
+        el.style.opacity = '1';
+        el.style.textShadow = '0 0 30px rgba(212,180,131,0.6)';
     });
 
-    // Al pasar el cursor directo sobre letras, brillo especial
-    el.addEventListener('mousemove', (e) => {
-        const letras = el.querySelectorAll('.letra');
-        letras.forEach(span => {
-            const rect = span.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
-            const intensidad = Math.max(0, 1 - dist / 80);
-
-            span.style.textShadow = intensidad > 0.1
-                ? `0 0 ${20 * intensidad}px rgba(212,180,131,${0.5 * intensidad + 0.5})`
-                : '';
-        });
+    // Al salir: vuelve al estado inicial suavemente
+    el.addEventListener('mouseleave', () => {
+        el.style.opacity = '0.55';
+        el.style.textShadow = '';
     });
 });
 

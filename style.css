@@ -16,11 +16,10 @@
 
 body {
     margin: 0;
-    font-family: "Playfair Display", serif;
+    font-family: "Bellefair", serif;
     color: var(--blanco-suave);
     overflow-x: hidden;
     background-color: var(--burdeos);
-    /* Sin imagen de fondo difuminada: fondo burdeos liso */
 }
 
 /* ============================
@@ -233,7 +232,7 @@ nav .logo-mini {
 
 .countdown-unit span {
     display: block;
-    font-family: "Playfair Display", serif;
+    font-family: "Bellefair", serif;
     font-size: clamp(1.6rem, 3.5vw, 2.5rem);
     font-weight: 400;
     color: var(--dorado);
@@ -246,7 +245,7 @@ nav .logo-mini {
     letter-spacing: 3px;
     text-transform: uppercase;
     color: rgba(248, 244, 240, 0.55);
-    font-family: "Playfair Display", serif;
+    font-family: "Bellefair", serif;
     margin-top: 6px;
     white-space: nowrap;
 }
@@ -411,6 +410,21 @@ nav .logo-mini {
     flex-direction: row-reverse;
 }
 
+/* Sin ornamento: texto centrado */
+.zigzag-inner.centrado {
+    justify-content: center;
+}
+
+.zigzag-inner.centrado .zigzag-texto {
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Ornamento a ambos lados */
+.zigzag-inner.ambos .zigzag-texto {
+    text-align: center;
+}
+
 /* Columna de media (ornamento o foto) */
 .zigzag-media {
     flex: 0 0 180px;
@@ -509,7 +523,7 @@ nav .logo-mini {
     margin-top: 8px;
     font-size: 0.9rem;
     text-align: center;
-    font-family: "Playfair Display", serif;
+    font-family: "Bellefair", serif;
 }
 
 .polaroid:hover {
@@ -617,7 +631,7 @@ nav .logo-mini {
     padding: 10px 12px;
     border-radius: 6px;
     border: 1px solid rgba(212, 180, 131, 0.6);
-    font-family: "Playfair Display", serif;
+    font-family: "Bellefair", serif;
     font-size: 1rem;
     background: rgba(0,0,0,0.25);
     color: var(--blanco-suave);

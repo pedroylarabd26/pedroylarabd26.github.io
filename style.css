@@ -294,17 +294,18 @@ nav .logo-mini {
 }
 
 .ornamento {
-    flex: 0 0 100px;
+    flex: 0 0 120px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.ornamento svg {
-    width: 90px;
+.ornamento .ornamento-img {
+    width: 100px;
     height: auto;
-    opacity: 0.85;
-    filter: drop-shadow(0 0 6px rgba(212,180,131,0.2));
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 6px rgba(212,180,131,0.15));
 }
 
 .bienvenida-texto {
@@ -421,14 +422,19 @@ nav .logo-mini {
 
 /* Ornamento dentro del media */
 .zigzag-ornamento {
-    width: 110px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.zigzag-ornamento svg {
+.ornamento-img {
     width: 100%;
     height: auto;
-    opacity: 0.8;
-    filter: drop-shadow(0 0 8px rgba(212,180,131,0.2));
+    display: block;
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(212,180,131,0.15));
 }
 
 /* Foto de pareja en zigzag */

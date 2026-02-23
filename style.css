@@ -234,7 +234,7 @@ nav .logo-mini {
 .countdown-unit span {
     display: block;
     font-family: "Playfair Display", serif;
-    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
     font-weight: 400;
     color: var(--dorado);
     line-height: 1;
@@ -412,7 +412,8 @@ nav .logo-mini {
 
 /* Columna de media (ornamento o foto) */
 .zigzag-media {
-    flex: 0 0 240px;
+    flex: 0 0 180px;
+    min-width: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -444,6 +445,7 @@ nav .logo-mini {
 /* Columna de texto */
 .zigzag-texto {
     flex: 1;
+    min-width: 0;
 }
 
 .zigzag-texto h2 {

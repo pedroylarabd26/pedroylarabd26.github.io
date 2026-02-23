@@ -154,7 +154,7 @@ nav .logo-mini {
 
 .title {
     font-family: "Great Vibes", cursive;
-    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
     letter-spacing: 2px;
     text-shadow: 2px 4px 12px rgba(0,0,0,0.6);
     margin: 0 0 16px 0;
@@ -233,7 +233,7 @@ nav .logo-mini {
 .countdown-unit span {
     display: block;
     font-family: "Bellefair", serif;
-    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
     font-weight: 400;
     color: var(--dorado);
     line-height: 1;

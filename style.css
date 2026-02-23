@@ -155,7 +155,7 @@ nav .logo-mini {
 
 .title {
     font-family: "Great Vibes", cursive;
-    font-size: 5.5rem;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
     letter-spacing: 2px;
     text-shadow: 2px 4px 12px rgba(0,0,0,0.6);
     margin: 0 0 16px 0;
@@ -202,31 +202,56 @@ nav .logo-mini {
 }
 
 /* ============================
-   CONTADOR
+   CONTADOR — estilo minimalista
 ============================ */
 .countdown {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    font-size: 1.6rem;
-    font-weight: bold;
+    gap: 0;
     justify-content: center;
+    align-items: flex-start;
+    margin-top: 8px;
 }
 
 .countdown div {
-    background: rgba(74, 8, 24, 0.55);
-    padding: 14px 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(212, 180, 131, 0.4);
-    min-width: 110px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0 28px;
+    min-width: 0;
     text-align: center;
-    backdrop-filter: blur(4px);
+    position: relative;
+}
+
+/* Separador vertical entre unidades */
+.countdown div + div::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: rgba(212, 180, 131, 0.4);
 }
 
 .countdown span {
     display: block;
-    font-size: 2.5rem;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 400;
     color: var(--dorado);
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+/* Etiqueta debajo del número */
+.countdown div {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(248, 244, 240, 0.55);
+    font-family: "Playfair Display", serif;
+    margin-top: 6px;
 }
 
 /* ============================
@@ -382,7 +407,10 @@ nav .logo-mini {
     gap: 60px;
 }
 
-.zigzag-invertido {
+/* Alternado automático:
+   secciones impares  → ornamento izquierda, texto derecha (orden natural)
+   secciones pares    → texto izquierda, ornamento derecha (invertido) */
+.zigzag-section:nth-of-type(even) .zigzag-inner {
     flex-direction: row-reverse;
 }
 
@@ -735,12 +763,13 @@ footer .logo-footer {
         to   { opacity: 1; transform: translateY(0); }
     }
 
-    .title { font-size: 3.2rem; }
+    .title { font-size: clamp(2rem, 11vw, 3.2rem); }
+    .hero-pre { font-size: clamp(1.2rem, 5vw, 1.8rem); }
     .hero { background-attachment: scroll; }
-    .hero-fecha { font-size: 1.1rem; letter-spacing: 3px; }
+    .hero-fecha { font-size: 1rem; letter-spacing: 2px; }
 
-    .countdown div { min-width: 45%; }
-    .countdown span { font-size: 1.6rem; }
+    .countdown div { padding: 0 16px; }
+    .countdown span { font-size: clamp(1.6rem, 7vw, 2rem); }
 
     /* Bienvenida en móvil: ocultar ornamentos y centrar */
     .bienvenida-inner {
@@ -754,9 +783,9 @@ footer .logo-footer {
     .bienvenida-subtitulo { font-size: 2.2rem; }
     .bienvenida-titulo { font-size: 3rem; }
 
-    /* Zigzag en móvil: columna única */
+    /* Zigzag en móvil: columna única, deshacemos el nth-child */
     .zigzag-inner,
-    .zigzag-invertido {
+    .zigzag-section:nth-of-type(even) .zigzag-inner {
         flex-direction: column;
         gap: 30px;
     }

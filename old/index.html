@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Pedro y Lara</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Tipografías -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Menú -->
+    <nav>
+        <div class="logo-mini">
+            <div class="logo-circle">P&L</div>
+        </div>
+
+        <div id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</div>
+
+        <div class="menu-links">
+            <a href="#info">Información</a>
+            <a href="#ubicacion">Ubicación</a>
+            <a href="#galeria">Galería</a>
+            <a href="#fotos">Comparte tus fotos</a>
+            <a href="#musica">Sugerencias musicales</a>
+            <a href="#confirmacion">Confirmación</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero principal -->
+    <div class="hero">
+        <h1 class="title">Pedro y Lara</h1>
+
+        <div class="countdown">
+            <div><span id="days">0</span>Días</div>
+            <div><span id="hours">0</span>Horas</div>
+            <div><span id="minutes">0</span>Minutos</div>
+            <div><span id="seconds">0</span>Segundos</div>
+        </div>
+    </div>
+
+    <!-- Sección Información -->
+    <section id="info" class="animate">
+        <div class="contenido">
+            <h2>Información</h2>
+            <p>Aquí podrás encontrar todos los detalles sobre nuestro gran día.</p>
+        </div>
+    </section>
+
+    <!-- Sección Ubicación -->
+    <section id="ubicacion" class="animate">
+        <div class="contenido">
+            <h2>Ubicación</h2>
+            <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
+
+            <iframe 
+                class="mapa"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.184763566113!2d-5.660948!3d40.127948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e4a4e3a14d0f%3A0x8e7c2e3c8c0f2b0!2sParador%20de%20Jarandilla%20de%20la%20Vera!5e0!3m2!1ses!2ses!4v1700000000000"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section id="galeria" class="animate">
+        <div class="contenido">
+            <h2>Galería</h2>
+            <p>Algunos momentos especiales que queremos compartir contigo.</p>
+
+            <div class="galeria-grid" id="galeriaGrid"></div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox-overlay">
+        <div class="lightbox-content">
+            <span class="lightbox-close">×</span>
+            <span class="lightbox-arrow arrow-left">❮</span>
+            <span class="lightbox-arrow arrow-right">❯</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Sección Comparte tus fotos -->
+    <section id="fotos" class="animate">
+        <div class="contenido">
+            <h2>Comparte tus fotos con nosotros</h2>
+            <p>Si haces fotos durante la boda, nos encantará que las compartas en nuestro álbum colaborativo.</p>
+
+            <a class="boton-enlace" href="https://photos.app.goo.gl/ge56DtzXjwJia8aF7" target="_blank">
+                📸 Enlace al álbum
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección Sugerencias musicales -->
+    <section id="musica" class="animate">
+        <div class="contenido">
+            <h2>Sugerencias musicales</h2>
+            <p>¿Quieres que suene tu canción favorita durante la barra libre? Añádela a nuestra lista colaborativa.</p>
+
+            <a class="boton-enlace" href="https://open.spotify.com/playlist/4zoP2iYWX6ioHUpeyQVJYh?si=07d95d173a124bd0&pt=184c350a147a4d30a31fa4b83517bfaa" target="_blank">
+                🎵 Enlace a la lista
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección Confirmación -->
+    <section id="confirmacion" class="animate">
+        <div class="contenido">
+            <h2>Confirmación</h2>
+            <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
+
+            <iframe 
+                class="formulario"
+                src="https://forms.office.com/r/qKpgsLNQUu"
+                height="725"
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="animate">
+        <div class="contenido">
+            <h2>Contacto</h2>
+            <p>Si tienes cualquier duda, puedes escribirnos directamente desde aquí.</p>
+
+            <form action="https://formsubmit.co/pedro.dc93@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de la boda">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <input type="text" name="Nombre" placeholder="Tu nombre" required>
+                <input type="email" name="Email" placeholder="Tu correo electrónico" required>
+                <textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="linea"></div>
+        <div class="logo-footer">
+            <div class="logo-circle">P&L</div>
+        </div>
+        <div>© Boda de Pedro y Lara · 17 · 10 · 2026</div>
+    </footer>
+
+    <!-- Botón volver arriba -->
+    <button id="btnTop" aria-label="Volver arriba">↑</button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+</body>
+</html>

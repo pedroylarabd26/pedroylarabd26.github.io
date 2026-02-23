@@ -2,12 +2,13 @@
    CONTADOR
 ============================ */
 function actualizarContador() {
+    // Fecha en UTC para evitar problemas de horario de invierno/verano
     const objetivo = new Date("2026-10-17T12:00:00Z");
     const ahora = new Date();
     const diferencia = objetivo - ahora;
 
     if (diferencia <= 0) {
-        document.querySelector(".countdown").innerHTML = "<p style='font-family:Great Vibes;font-size:2rem;color:#D4B483'>¡Hoy es el gran día!</p>";
+        document.querySelector(".countdown").innerHTML = "¡Hoy es el gran día!";
         return;
     }
 
@@ -26,66 +27,16 @@ setInterval(actualizarContador, 1000);
 actualizarContador();
 
 /* ============================
-   CURSOR GLOW
-============================ */
-const cursorGlow = document.getElementById('cursor-glow');
-
-document.addEventListener('mousemove', (e) => {
-    cursorGlow.style.left = e.clientX + 'px';
-    cursorGlow.style.top  = e.clientY + 'px';
-});
-
-/* ============================
-   EFECTO "LETRA SURGE" AL MOVER CURSOR
-   Ilumina el texto al pasar el ratón
-============================ */
-document.querySelectorAll('.reveal-cursor').forEach(el => {
-    // Dividimos el texto en letras individuales con spans
-    const textoOriginal = el.textContent;
-    el.innerHTML = textoOriginal.split('').map(letra =>
-        letra === ' '
-            ? ' '
-            : `<span class="letra" style="opacity:0.35;transition:opacity 0.4s ease,text-shadow 0.4s ease">${letra}</span>`
-    ).join('');
-
-    // Revelamos todas las letras del elemento al entrar en él
-    el.addEventListener('mouseenter', () => {
-        el.querySelectorAll('.letra').forEach((span, i) => {
-            setTimeout(() => {
-                span.style.opacity = '1';
-                span.style.textShadow = '0 0 20px rgba(212,180,131,0.7)';
-            }, i * 35);
-        });
-    });
-
-    // Al pasar el cursor directo sobre letras, brillo especial
-    el.addEventListener('mousemove', (e) => {
-        const letras = el.querySelectorAll('.letra');
-        letras.forEach(span => {
-            const rect = span.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
-            const intensidad = Math.max(0, 1 - dist / 80);
-
-            span.style.textShadow = intensidad > 0.1
-                ? `0 0 ${20 * intensidad}px rgba(212,180,131,${0.5 * intensidad + 0.5})`
-                : '';
-        });
-    });
-});
-
-/* ============================
    ANIMACIONES AL HACER SCROLL
 ============================ */
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target); // Evita que se repita la animación
         }
     });
-}, { threshold: 0.15 });
+}, { threshold: 0.2 });
 
 document.querySelectorAll('section.animate').forEach(sec => observer.observe(sec));
 
@@ -118,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const galeriaGrid = document.getElementById('galeriaGrid');
     let indiceActual = 0;
-    let escala = 1;
+    let escala = 1; // Declarada arriba para evitar variables implícitas
 
     archivosGaleria.forEach((nombreArchivo, index) => {
         const ruta = "fotos_galeria/" + nombreArchivo;
@@ -164,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const btnCerrar = document.querySelector('.lightbox-close');
+
     btnCerrar.addEventListener('click', cerrarLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) cerrarLightbox();
@@ -173,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.classList.remove('visible');
     }
 
+    /* Flechas */
     const flechaIzq = document.querySelector('.arrow-left');
     const flechaDer = document.querySelector('.arrow-right');
 
@@ -186,32 +139,22 @@ document.addEventListener("DOMContentLoaded", () => {
         abrirLightbox(indiceActual);
     });
 
-    /* Zoom táctil + swipe combinados en listeners unificados */
+    /* Zoom táctil */
     let distanciaInicial = 0;
-    let inicioY = 0;
-    let gestoDosD = false;
 
     lightboxImg.addEventListener('touchstart', (e) => {
         if (e.touches.length === 2) {
-            gestoDosD = true;
             distanciaInicial = distanciaEntreDedos(e.touches);
-        } else if (e.touches.length === 1) {
-            gestoDosD = false;
-            inicioY = e.touches[0].clientY;
         }
     });
 
     lightboxImg.addEventListener('touchmove', (e) => {
-        if (e.touches.length === 2 && gestoDosD) {
+        if (e.touches.length === 2) {
             const nuevaDistancia = distanciaEntreDedos(e.touches);
             const factor = nuevaDistancia / distanciaInicial;
+
             escala = Math.min(Math.max(1, factor), 4);
             lightboxImg.style.transform = `scale(${escala})`;
-        } else if (e.touches.length === 1 && !gestoDosD) {
-            const desplazamiento = e.touches[0].clientY - inicioY;
-            if (desplazamiento > 120 && escala === 1) {
-                cerrarLightbox();
-            }
         }
     });
 
@@ -220,6 +163,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const dy = touches[0].clientY - touches[1].clientY;
         return Math.sqrt(dx * dx + dy * dy);
     }
+
+    /* Swipe hacia abajo */
+    let inicioY = 0;
+
+    lightboxImg.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+            inicioY = e.touches[0].clientY;
+        }
+    });
+
+    lightboxImg.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 1) {
+            const actualY = e.touches[0].clientY;
+            const desplazamiento = actualY - inicioY;
+
+            if (desplazamiento > 120 && escala === 1) {
+                cerrarLightbox();
+            }
+        }
+    });
 });
 
 /* ============================
@@ -230,12 +193,16 @@ const nav = document.querySelector("nav");
 
 menuToggle.addEventListener("click", () => {
     nav.classList.toggle("expanded");
-    menuToggle.setAttribute(
-        "aria-label",
-        nav.classList.contains("expanded") ? "Cerrar menú" : "Abrir menú"
-    );
+
+    // Accesibilidad: cambiar aria-label dinámicamente
+    if (nav.classList.contains("expanded")) {
+        menuToggle.setAttribute("aria-label", "Cerrar menú");
+    } else {
+        menuToggle.setAttribute("aria-label", "Abrir menú");
+    }
 });
 
+/* Cerrar menú al pulsar un enlace */
 document.querySelectorAll("nav a").forEach(enlace => {
     enlace.addEventListener("click", () => {
         nav.classList.remove("expanded");
@@ -249,6 +216,8 @@ document.querySelectorAll("nav a").forEach(enlace => {
 let ultimaPos = 0;
 
 window.addEventListener("scroll", () => {
+
+    // Si el menú está abierto, no ocultarlo
     if (nav.classList.contains("expanded")) return;
 
     const actual = window.scrollY;

@@ -20,15 +20,19 @@
 
 <body>
 
+    <!-- Cursor personalizado -->
+    <div id="cursor-glow"></div>
+
     <!-- Menú -->
     <nav>
         <div class="logo-mini">
-            <div class="logo-circle">P&L</div>
+            <div class="logo-circle">P&amp;L</div>
         </div>
 
         <div id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</div>
 
         <div class="menu-links">
+            <a href="#bienvenida">Inicio</a>
             <a href="#info">Información</a>
             <a href="#ubicacion">Ubicación</a>
             <a href="#galeria">Galería</a>
@@ -39,48 +43,216 @@
         </div>
     </nav>
 
-    <!-- Hero principal -->
-    <div class="hero">
-        <h1 class="title">Pedro y Lara</h1>
+    <!-- ===================== -->
+    <!-- HERO: Foto con overlay -->
+    <!-- ===================== -->
+    <div class="hero" id="hero">
+        <!-- La imagen de fondo se pone en CSS como variable, o directamente con style -->
+        <!-- Usa tu foto: style="--hero-img: url('fotos_web/TU_FOTO.jpg')" -->
+        <div class="hero-overlay"></div>
 
-        <div class="countdown">
-            <div><span id="days">0</span>Días</div>
-            <div><span id="hours">0</span>Horas</div>
-            <div><span id="minutes">0</span>Minutos</div>
-            <div><span id="seconds">0</span>Segundos</div>
+        <div class="hero-content">
+            <p class="hero-pre reveal-cursor" data-text="Save the Date">Save the Date</p>
+            <h1 class="title reveal-cursor" data-text="Pedro &amp; Lara">Pedro &amp; Lara</h1>
+            <div class="hero-fecha reveal-cursor" data-text="17 · 10 · 2026">17 · 10 · 2026</div>
+
+            <div class="countdown">
+                <div><span id="days">0</span>Días</div>
+                <div><span id="hours">0</span>Horas</div>
+                <div><span id="minutes">0</span>Minutos</div>
+                <div><span id="seconds">0</span>Segundos</div>
+            </div>
         </div>
     </div>
 
-    <!-- Sección Información -->
-    <section id="info" class="animate">
-        <div class="contenido">
-            <h2>Información</h2>
-            <p>Aquí podrás encontrar todos los detalles sobre nuestro gran día.</p>
+    <!-- ===================== -->
+    <!-- SECCIÓN BIENVENIDA    -->
+    <!-- burdeos liso + ornamento barroco + texto -->
+    <!-- ===================== -->
+    <section id="bienvenida" class="bienvenida-section animate">
+        <div class="bienvenida-inner">
+            <!-- Ornamento barroco izquierda -->
+            <div class="ornamento ornamento-izq" aria-hidden="true">
+                <svg viewBox="0 0 120 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <!-- Tallo central -->
+                    <path d="M60 280 C60 200, 60 150, 60 20" stroke="#D4B483" stroke-width="1.5" stroke-linecap="round"/>
+                    <!-- Espiral superior -->
+                    <path d="M60 20 C60 0, 40 0, 35 15 C30 30, 45 38, 55 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                    <path d="M60 20 C60 0, 80 0, 85 15 C90 30, 75 38, 65 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                    <!-- Ramas izquierda -->
+                    <path d="M60 80 C50 70, 30 68, 20 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M20 58 C15 48, 22 45, 25 50" stroke="#D4B483" stroke-width="1" fill="none"/>
+                    <circle cx="20" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                    <!-- Ramas derecha -->
+                    <path d="M60 80 C70 70, 90 68, 100 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M100 58 C105 48, 98 45, 95 50" stroke="#D4B483" stroke-width="1" fill="none"/>
+                    <circle cx="100" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                    <!-- Ramas medias izq -->
+                    <path d="M60 140 C45 128, 28 130, 18 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="18" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                    <circle cx="18" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                    <!-- Ramas medias der -->
+                    <path d="M60 140 C75 128, 92 130, 102 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="102" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                    <circle cx="102" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                    <!-- Ramas bajas izq -->
+                    <path d="M60 200 C48 192, 32 194, 22 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M22 185 C16 178, 20 174, 24 178" stroke="#D4B483" stroke-width="1" fill="none"/>
+                    <!-- Ramas bajas der -->
+                    <path d="M60 200 C72 192, 88 194, 98 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M98 185 C104 178, 100 174, 96 178" stroke="#D4B483" stroke-width="1" fill="none"/>
+                    <!-- Flor base -->
+                    <circle cx="60" cy="280" r="6" fill="none" stroke="#D4B483" stroke-width="1.2"/>
+                    <circle cx="60" cy="280" r="3" fill="#D4B483" opacity="0.5"/>
+                    <!-- Pétalos base -->
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(0 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(60 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(120 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(180 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(240 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(300 60 280)"/>
+                </svg>
+            </div>
+
+            <!-- Texto central -->
+            <div class="bienvenida-texto">
+                <p class="bienvenida-subtitulo reveal-cursor" data-text="¡Nos casamos!">¡Nos casamos!</p>
+                <h2 class="bienvenida-titulo reveal-cursor" data-text="Pedro &amp; Lara">Pedro &amp; Lara</h2>
+                <p class="bienvenida-cuerpo">
+                    Queremos que seas parte del día más especial de nuestras vidas.<br>
+                    Acompáñanos en esta celebración llena de amor, alegría y momentos que recordaremos siempre.
+                </p>
+                <div class="bienvenida-separador">
+                    <span>✦</span><span>✦</span><span>✦</span>
+                </div>
+                <p class="bienvenida-fecha-grande">17 · Octubre · 2026</p>
+                <p class="bienvenida-lugar">Parador de Jarandilla de la Vera</p>
+            </div>
+
+            <!-- Ornamento barroco derecha (espejo) -->
+            <div class="ornamento ornamento-der" aria-hidden="true">
+                <svg viewBox="0 0 120 300" xmlns="http://www.w3.org/2000/svg" fill="none" style="transform: scaleX(-1)">
+                    <path d="M60 280 C60 200, 60 150, 60 20" stroke="#D4B483" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M60 20 C60 0, 40 0, 35 15 C30 30, 45 38, 55 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                    <path d="M60 20 C60 0, 80 0, 85 15 C90 30, 75 38, 65 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                    <path d="M60 80 C50 70, 30 68, 20 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M20 58 C15 48, 22 45, 25 50" stroke="#D4B483" stroke-width="1" fill="none"/>
+                    <circle cx="20" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                    <path d="M60 80 C70 70, 90 68, 100 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M100 58 C105 48, 98 45, 95 50" stroke="#D4B483" stroke-width="1" fill="none"/>
+                    <circle cx="100" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                    <path d="M60 140 C45 128, 28 130, 18 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="18" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                    <circle cx="18" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                    <path d="M60 140 C75 128, 92 130, 102 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="102" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                    <circle cx="102" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                    <path d="M60 200 C48 192, 32 194, 22 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M22 185 C16 178, 20 174, 24 178" stroke="#D4B483" stroke-width="1" fill="none"/>
+                    <path d="M60 200 C72 192, 88 194, 98 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M98 185 C104 178, 100 174, 96 178" stroke="#D4B483" stroke-width="1" fill="none"/>
+                    <circle cx="60" cy="280" r="6" fill="none" stroke="#D4B483" stroke-width="1.2"/>
+                    <circle cx="60" cy="280" r="3" fill="#D4B483" opacity="0.5"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(0 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(60 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(120 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(180 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(240 60 280)"/>
+                    <ellipse cx="60" cy="270" rx="3" ry="5" fill="#D4B483" opacity="0.35" transform="rotate(300 60 280)"/>
+                </svg>
+            </div>
         </div>
     </section>
 
-    <!-- Sección Ubicación -->
-    <section id="ubicacion" class="animate">
-        <div class="contenido">
-            <h2>Ubicación</h2>
-            <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
+    <!-- ===================== -->
+    <!-- SECCIONES EN ZIGZAG   -->
+    <!-- ===================== -->
 
-            <iframe 
-                class="mapa"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.184763566113!2d-5.660948!3d40.127948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e4a4e3a14d0f%3A0x8e7c2e3c8c0f2b0!2sParador%20de%20Jarandilla%20de%20la%20Vera!5e0!3m2!1ses!2ses!4v1700000000000"
-                allowfullscreen=""
-                loading="lazy">
-            </iframe>
+    <!-- Info: foto izq, texto der -->
+    <section id="info" class="zigzag-section animate">
+        <div class="zigzag-inner zigzag-normal">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <svg viewBox="0 0 120 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path d="M60 280 C60 200, 60 150, 60 20" stroke="#D4B483" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M60 20 C60 0, 40 0, 35 15 C30 30, 45 38, 55 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 20 C60 0, 80 0, 85 15 C90 30, 75 38, 65 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 80 C50 70, 30 68, 20 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="20" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 80 C70 70, 90 68, 100 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="100" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 140 C45 128, 28 130, 18 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="18" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="18" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 140 C75 128, 92 130, 102 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="102" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="102" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 200 C48 192, 32 194, 22 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M60 200 C72 192, 88 194, 98 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="60" cy="280" r="5" fill="none" stroke="#D4B483" stroke-width="1.2"/>
+                        <circle cx="60" cy="280" r="2.5" fill="#D4B483" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="zigzag-texto">
+                <h2>Información</h2>
+                <p>Aquí podrás encontrar todos los detalles sobre nuestro gran día.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Sección Galería -->
-    <section id="galeria" class="animate">
-        <div class="contenido">
-            <h2>Galería</h2>
-            <p>Algunos momentos especiales que queremos compartir contigo.</p>
+    <!-- Ubicación: texto izq, foto der (invertido) -->
+    <section id="ubicacion" class="zigzag-section animate">
+        <div class="zigzag-inner zigzag-invertido">
+            <div class="zigzag-texto">
+                <h2>Ubicación</h2>
+                <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
+                <a class="boton-enlace" href="https://maps.google.com/?q=Parador+de+Jarandilla+de+la+Vera" target="_blank">
+                    📍 Ver en Google Maps
+                </a>
+            </div>
+            <div class="zigzag-media">
+                <iframe
+                    class="mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.184763566113!2d-5.660948!3d40.127948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e4a4e3a14d0f%3A0x8e7c2e3c8c0f2b0!2sParador%20de%20Jarandilla%20de%20la%20Vera!5e0!3m2!1ses!2ses!4v1700000000000"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
 
-            <div class="galeria-grid" id="galeriaGrid"></div>
+    <!-- Galería: ornamento izq, galería der -->
+    <section id="galeria" class="zigzag-section animate">
+        <div class="zigzag-inner zigzag-normal">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <svg viewBox="0 0 120 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path d="M60 280 C60 200, 60 150, 60 20" stroke="#D4B483" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M60 20 C60 0, 40 0, 35 15 C30 30, 45 38, 55 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 20 C60 0, 80 0, 85 15 C90 30, 75 38, 65 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 80 C50 70, 30 68, 20 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="20" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 80 C70 70, 90 68, 100 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="100" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 140 C45 128, 28 130, 18 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="18" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="18" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 140 C75 128, 92 130, 102 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="102" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="102" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 200 C48 192, 32 194, 22 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M60 200 C72 192, 88 194, 98 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="60" cy="280" r="5" fill="none" stroke="#D4B483" stroke-width="1.2"/>
+                        <circle cx="60" cy="280" r="2.5" fill="#D4B483" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="zigzag-texto galeria-bloque">
+                <h2>Galería</h2>
+                <p>Algunos momentos especiales que queremos compartir contigo.</p>
+                <div class="galeria-grid" id="galeriaGrid"></div>
+            </div>
         </div>
     </section>
 
@@ -94,61 +266,160 @@
         </div>
     </div>
 
-    <!-- Sección Comparte tus fotos -->
-    <section id="fotos" class="animate">
-        <div class="contenido">
-            <h2>Comparte tus fotos con nosotros</h2>
-            <p>Si haces fotos durante la boda, nos encantará que las compartas en nuestro álbum colaborativo.</p>
-
-            <a class="boton-enlace" href="https://photos.app.goo.gl/ge56DtzXjwJia8aF7" target="_blank">
-                📸 Enlace al álbum
-            </a>
+    <!-- Fotos: texto izq, ornamento der -->
+    <section id="fotos" class="zigzag-section animate">
+        <div class="zigzag-inner zigzag-invertido">
+            <div class="zigzag-texto">
+                <h2>Comparte tus fotos</h2>
+                <p>Si haces fotos durante la boda, nos encantará que las compartas en nuestro álbum colaborativo.</p>
+                <a class="boton-enlace" href="https://photos.app.goo.gl/ge56DtzXjwJia8aF7" target="_blank">
+                    📸 Enlace al álbum
+                </a>
+            </div>
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <svg viewBox="0 0 120 300" xmlns="http://www.w3.org/2000/svg" fill="none" style="transform: scaleX(-1)">
+                        <path d="M60 280 C60 200, 60 150, 60 20" stroke="#D4B483" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M60 20 C60 0, 40 0, 35 15 C30 30, 45 38, 55 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 20 C60 0, 80 0, 85 15 C90 30, 75 38, 65 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 80 C50 70, 30 68, 20 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="20" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 80 C70 70, 90 68, 100 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="100" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 140 C45 128, 28 130, 18 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="18" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="18" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 140 C75 128, 92 130, 102 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="102" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="102" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 200 C48 192, 32 194, 22 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M60 200 C72 192, 88 194, 98 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="60" cy="280" r="5" fill="none" stroke="#D4B483" stroke-width="1.2"/>
+                        <circle cx="60" cy="280" r="2.5" fill="#D4B483" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Sección Sugerencias musicales -->
-    <section id="musica" class="animate">
-        <div class="contenido">
-            <h2>Sugerencias musicales</h2>
-            <p>¿Quieres que suene tu canción favorita durante la barra libre? Añádela a nuestra lista colaborativa.</p>
-
-            <a class="boton-enlace" href="https://open.spotify.com/playlist/4zoP2iYWX6ioHUpeyQVJYh?si=07d95d173a124bd0&pt=184c350a147a4d30a31fa4b83517bfaa" target="_blank">
-                🎵 Enlace a la lista
-            </a>
+    <!-- Música: ornamento izq, texto der -->
+    <section id="musica" class="zigzag-section animate">
+        <div class="zigzag-inner zigzag-normal">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <svg viewBox="0 0 120 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path d="M60 280 C60 200, 60 150, 60 20" stroke="#D4B483" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M60 20 C60 0, 40 0, 35 15 C30 30, 45 38, 55 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 20 C60 0, 80 0, 85 15 C90 30, 75 38, 65 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 80 C50 70, 30 68, 20 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="20" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 80 C70 70, 90 68, 100 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="100" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 140 C45 128, 28 130, 18 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="18" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="18" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 140 C75 128, 92 130, 102 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="102" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="102" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 200 C48 192, 32 194, 22 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M60 200 C72 192, 88 194, 98 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="60" cy="280" r="5" fill="none" stroke="#D4B483" stroke-width="1.2"/>
+                        <circle cx="60" cy="280" r="2.5" fill="#D4B483" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="zigzag-texto">
+                <h2>Sugerencias musicales</h2>
+                <p>¿Quieres que suene tu canción favorita durante la barra libre? Añádela a nuestra lista colaborativa.</p>
+                <a class="boton-enlace" href="https://open.spotify.com/playlist/4zoP2iYWX6ioHUpeyQVJYh?si=07d95d173a124bd0&pt=184c350a147a4d30a31fa4b83517bfaa" target="_blank">
+                    🎵 Enlace a la lista
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Sección Confirmación -->
-    <section id="confirmacion" class="animate">
-        <div class="contenido">
-            <h2>Confirmación</h2>
-            <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
-
-            <iframe 
-                class="formulario"
-                src="https://forms.office.com/r/qKpgsLNQUu"
-                height="725"
-                loading="lazy">
-            </iframe>
+    <!-- Confirmación: texto izq, ornamento der -->
+    <section id="confirmacion" class="zigzag-section animate">
+        <div class="zigzag-inner zigzag-invertido">
+            <div class="zigzag-texto">
+                <h2>Confirmación</h2>
+                <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
+                <iframe
+                    class="formulario"
+                    src="https://forms.office.com/r/qKpgsLNQUu"
+                    height="725"
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <svg viewBox="0 0 120 300" xmlns="http://www.w3.org/2000/svg" fill="none" style="transform: scaleX(-1)">
+                        <path d="M60 280 C60 200, 60 150, 60 20" stroke="#D4B483" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M60 20 C60 0, 40 0, 35 15 C30 30, 45 38, 55 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 20 C60 0, 80 0, 85 15 C90 30, 75 38, 65 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 80 C50 70, 30 68, 20 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="20" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 80 C70 70, 90 68, 100 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="100" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 140 C45 128, 28 130, 18 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="18" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="18" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 140 C75 128, 92 130, 102 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="102" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="102" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 200 C48 192, 32 194, 22 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M60 200 C72 192, 88 194, 98 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="60" cy="280" r="5" fill="none" stroke="#D4B483" stroke-width="1.2"/>
+                        <circle cx="60" cy="280" r="2.5" fill="#D4B483" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="animate">
-        <div class="contenido">
-            <h2>Contacto</h2>
-            <p>Si tienes cualquier duda, puedes escribirnos directamente desde aquí.</p>
+    <!-- Contacto: ornamento izq, formulario der -->
+    <section id="contacto" class="zigzag-section animate">
+        <div class="zigzag-inner zigzag-normal">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <svg viewBox="0 0 120 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path d="M60 280 C60 200, 60 150, 60 20" stroke="#D4B483" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M60 20 C60 0, 40 0, 35 15 C30 30, 45 38, 55 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 20 C60 0, 80 0, 85 15 C90 30, 75 38, 65 30" stroke="#D4B483" stroke-width="1.2" fill="none"/>
+                        <path d="M60 80 C50 70, 30 68, 20 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="20" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 80 C70 70, 90 68, 100 58" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="100" cy="57" r="3" fill="#D4B483" opacity="0.6"/>
+                        <path d="M60 140 C45 128, 28 130, 18 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="18" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="18" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 140 C75 128, 92 130, 102 120" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="102" cy="119" r="4" fill="none" stroke="#D4B483" stroke-width="1"/>
+                        <circle cx="102" cy="119" r="2" fill="#D4B483" opacity="0.5"/>
+                        <path d="M60 200 C48 192, 32 194, 22 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M60 200 C72 192, 88 194, 98 185" stroke="#D4B483" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="60" cy="280" r="5" fill="none" stroke="#D4B483" stroke-width="1.2"/>
+                        <circle cx="60" cy="280" r="2.5" fill="#D4B483" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="zigzag-texto">
+                <h2>Contacto</h2>
+                <p>Si tienes cualquier duda, puedes escribirnos directamente desde aquí.</p>
 
-            <form action="https://formsubmit.co/pedro.dc93@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de la boda">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
+                <!-- _captcha activado (eliminado _captcha: false) -->
+                <form action="https://formsubmit.co/pedro.dc93@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de la boda">
+                    <input type="hidden" name="_template" value="table">
+                    <!-- Honeypot antispam -->
+                    <input type="text" name="_honey" style="display:none">
 
-                <input type="text" name="Nombre" placeholder="Tu nombre" required>
-                <input type="email" name="Email" placeholder="Tu correo electrónico" required>
-                <textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
+                    <input type="text" name="Nombre" placeholder="Tu nombre" required>
+                    <input type="email" name="Email" placeholder="Tu correo electrónico" required>
+                    <textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -156,7 +427,7 @@
     <footer>
         <div class="linea"></div>
         <div class="logo-footer">
-            <div class="logo-circle">P&L</div>
+            <div class="logo-circle">P&amp;L</div>
         </div>
         <div>© Boda de Pedro y Lara · 17 · 10 · 2026</div>
     </footer>

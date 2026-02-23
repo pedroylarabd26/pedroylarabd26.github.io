@@ -2,9 +2,11 @@
    VARIABLES
 ============================ */
 :root {
-    --burdeos: #4A0E1F;
-    --burdeos-oscuro: #2E0813;
+    --burdeos: #6B0F2B;
+    --burdeos-oscuro: #4A0818;
+    --burdeos-medio: #560D23;
     --dorado: #D4B483;
+    --dorado-claro: #E3C79A;
     --blanco-suave: #F8F4F0;
 }
 
@@ -17,35 +19,38 @@ body {
     font-family: "Playfair Display", serif;
     color: var(--blanco-suave);
     overflow-x: hidden;
+    background-color: var(--burdeos);
+    /* Sin imagen de fondo difuminada: fondo burdeos liso */
 }
 
-/* Fondo difuminado */
-body::before {
-    content: "";
+/* ============================
+   CURSOR PERSONALIZADO
+============================ */
+#cursor-glow {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("fotos_web/11927466.jpg");
-    background-size: cover;
-    background-position: center;
-    filter: blur(6px) brightness(0.45);
-    z-index: -1;
+    pointer-events: none;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,180,131,0.12) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: left 0.08s ease, top 0.08s ease;
+    mix-blend-mode: screen;
 }
 
 /* ============================
    MENÚ
 ============================ */
 nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(74, 14, 31, 0.85);
+    background: rgba(74, 8, 24, 0.92);
     padding: 10px 15px;
-    backdrop-filter: blur(4px);
-    z-index: 20;
-    border-bottom: 1px solid rgba(212, 180, 131, 0.4);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(212, 180, 131, 0.35);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,9 +74,9 @@ nav .logo-mini {
     font-family: "Great Vibes", cursive;
     font-size: 1.4rem;
     color: var(--dorado);
+    flex-shrink: 0;
 }
 
-/* Enlaces del menú */
 .menu-links {
     display: flex;
     gap: 20px;
@@ -82,14 +87,13 @@ nav .logo-mini {
     color: var(--dorado);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .menu-links a:hover {
     color: white;
 }
 
-/* Icono hamburguesa */
 .menu-toggle {
     display: none;
     font-size: 2rem;
@@ -100,25 +104,101 @@ nav .logo-mini {
 }
 
 /* ============================
-   HERO
+   HERO: FOTO CON OVERLAY
 ============================ */
 .hero {
+    position: relative;
     height: 100vh;
+    min-height: 600px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+
+    /* 
+     * INSTRUCCIÓN: Cambia esta URL por tu foto de pareja.
+     * Ejemplo: background-image: url("fotos_web/foto_pareja.jpg");
+     */
+    background-image: url("fotos_web/11927466.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Capa oscura sobre la foto */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(74, 8, 24, 0.45) 0%,
+        rgba(74, 8, 24, 0.65) 60%,
+        rgba(74, 8, 24, 0.92) 100%
+    );
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    padding: 0 20px;
+    padding: 20px;
+}
+
+.hero-pre {
+    font-family: "Great Vibes", cursive;
+    font-size: 2rem;
+    color: var(--dorado-claro);
+    margin: 0 0 8px 0;
+    opacity: 0.9;
 }
 
 .title {
     font-family: "Great Vibes", cursive;
-    font-size: 5rem;
+    font-size: 5.5rem;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 6px black;
-    margin-bottom: 40px;
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.6);
+    margin: 0 0 16px 0;
     color: var(--dorado);
+    line-height: 1.1;
+}
+
+.hero-fecha {
+    font-size: 1.4rem;
+    letter-spacing: 6px;
+    color: var(--blanco-suave);
+    margin-bottom: 40px;
+    text-shadow: 1px 2px 6px rgba(0,0,0,0.5);
+}
+
+/* ============================
+   EFECTO REVEAL AL CURSOR
+   (las letras "surgen" al pasar)
+============================ */
+.reveal-cursor {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Capa que cubre el texto y se va "borrando" con clip-path al mover el cursor */
+.reveal-cursor::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    -webkit-text-stroke: 0.5px rgba(212,180,131,0.5);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+/* Glow que sigue el cursor sobre textos reveal */
+.reveal-glow {
+    background: radial-gradient(circle 120px at var(--cx, 50%) var(--cy, 50%),
+        rgba(212,180,131,0.35) 0%,
+        transparent 70%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 /* ============================
@@ -127,19 +207,20 @@ nav .logo-mini {
 .countdown {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
-    font-size: 1.8rem;
+    gap: 20px;
+    font-size: 1.6rem;
     font-weight: bold;
     justify-content: center;
 }
 
 .countdown div {
-    background: rgba(74, 14, 31, 0.6);
-    padding: 15px 20px;
+    background: rgba(74, 8, 24, 0.55);
+    padding: 14px 18px;
     border-radius: 10px;
     border: 1px solid rgba(212, 180, 131, 0.4);
-    min-width: 120px;
+    min-width: 110px;
     text-align: center;
+    backdrop-filter: blur(4px);
 }
 
 .countdown span {
@@ -149,46 +230,214 @@ nav .logo-mini {
 }
 
 /* ============================
-   SECCIONES (FONDO CONTINUO)
+   SECCIÓN BIENVENIDA
+   (burdeos liso + ornamentos)
 ============================ */
-section {
+.bienvenida-section {
     width: 100%;
-    padding: 90px 25px;
-
-    /* Fondo morado continuo */
-    background: rgba(74, 14, 31, 0.45);
-
-    border: none;
-    border-radius: 0;
-    margin: 0;
+    background: var(--burdeos);
+    padding: 90px 40px;
+    position: relative;
+    overflow: hidden;
 
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-
-    text-align: center;
+    transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-section.visible {
+.bienvenida-section.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--dorado);
+/* Sutil textura de grano para dar profundidad */
+.bienvenida-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.5;
 }
 
-section p {
-    font-size: 1.3rem;
-    line-height: 1.7;
-}
-
-/* Contenedor interno */
-section .contenido {
-    max-width: 900px;
+.bienvenida-inner {
+    max-width: 1100px;
     margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.ornamento {
+    flex: 0 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ornamento svg {
+    width: 90px;
+    height: auto;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 6px rgba(212,180,131,0.2));
+}
+
+.bienvenida-texto {
+    flex: 1;
+    text-align: center;
+    max-width: 600px;
+}
+
+.bienvenida-subtitulo {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    color: var(--dorado);
+    margin: 0 0 4px 0;
+    text-shadow: 0 2px 12px rgba(212,180,131,0.3);
+}
+
+.bienvenida-titulo {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+    color: var(--blanco-suave);
+    margin: 0 0 24px 0;
+    font-weight: 400;
+}
+
+.bienvenida-cuerpo {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(248,244,240,0.88);
+    margin: 0 0 24px 0;
+}
+
+.bienvenida-separador {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.bienvenida-separador span {
+    color: var(--dorado);
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.bienvenida-fecha-grande {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    color: var(--dorado);
+    margin: 0 0 8px 0;
+}
+
+.bienvenida-lugar {
+    font-size: 1rem;
+    color: rgba(248,244,240,0.7);
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* ============================
+   SECCIONES ZIGZAG
+============================ */
+.zigzag-section {
+    width: 100%;
+    background: var(--burdeos);
+    padding: 70px 40px;
+    position: relative;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Línea separadora superior sutil */
+.zigzag-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212,180,131,0.3), transparent);
+}
+
+.zigzag-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.zigzag-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.zigzag-invertido {
+    flex-direction: row-reverse;
+}
+
+/* Columna de media (ornamento o foto) */
+.zigzag-media {
+    flex: 0 0 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ornamento dentro del media */
+.zigzag-ornamento {
+    width: 110px;
+}
+
+.zigzag-ornamento svg {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(212,180,131,0.2));
+}
+
+/* Foto de pareja en zigzag */
+.zigzag-foto {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 8px;
+    border: 2px solid rgba(212,180,131,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    object-fit: cover;
+    aspect-ratio: 3/4;
+}
+
+/* Columna de texto */
+.zigzag-texto {
+    flex: 1;
+}
+
+.zigzag-texto h2 {
+    font-size: 2.3rem;
+    color: var(--dorado);
+    margin-bottom: 14px;
+}
+
+.zigzag-texto p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: rgba(248,244,240,0.9);
+    margin-bottom: 16px;
+}
+
+/* Galería dentro de zigzag */
+.galeria-bloque {
+    flex: 1;
 }
 
 /* ============================
@@ -198,14 +447,14 @@ section .contenido {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
+    justify-content: flex-start;
+    margin-top: 20px;
 }
 
 .polaroid {
     background: #fdfdfd;
     color: #333;
-    width: 180px;
+    width: 160px;
     padding: 10px 10px 18px;
     border-radius: 6px;
     box-shadow: 0 8px 18px rgba(0,0,0,0.4);
@@ -226,13 +475,13 @@ section .contenido {
 
 .polaroid-title {
     margin-top: 8px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-align: center;
     font-family: "Playfair Display", serif;
 }
 
 .polaroid:hover {
-    transform: scale(1.03) rotate(0deg);
+    transform: scale(1.04) rotate(0deg);
     box-shadow: 0 10px 24px rgba(0,0,0,0.6);
 }
 
@@ -245,7 +494,7 @@ section .contenido {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.88);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -280,7 +529,7 @@ section .contenido {
     top: 10px;
     right: 10px;
     background: var(--dorado);
-    color: var(--burdeos);
+    color: var(--burdeos-oscuro);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -310,68 +559,6 @@ section .contenido {
 .arrow-right { right: 20px; }
 
 /* ============================
-   MENÚ MÓVIL
-============================ */
-@media (max-width: 700px) {
-
-    section { 
-        background: rgba(74, 14, 31, 0.35); 
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .menu-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(74, 14, 31, 0.92);
-        backdrop-filter: blur(6px);
-        padding: 20px 0;
-        animation: slideDown 0.3s ease;
-    }
-
-    nav.expanded .menu-links {
-        display: flex;
-    }
-
-    .menu-links a {
-        padding: 14px 20px;
-        width: 100%;
-        text-align: center;
-        font-size: 1.2rem;
-        border-bottom: 1px solid rgba(212, 180, 131, 0.2);
-        color: var(--dorado);
-    }
-
-    .menu-links a:last-child {
-        border-bottom: none;
-    }
-
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .title { font-size: 3.5rem; }
-    .hero { height: 55vh; padding-top: 10px; }
-
-    .countdown div {
-        min-width: 45%;
-    }
-
-    .countdown span {
-        font-size: 1.6rem;
-    }
-
-    .polaroid { width: 140px; }
-
-    .arrow-left { left: 10px; }
-    .arrow-right { right: 10px; }
-}
-
-/* ============================
    MAPA Y FORMULARIOS
 ============================ */
 .mapa,
@@ -386,15 +573,15 @@ section .contenido {
 /* ============================
    FORMULARIO CONTACTO
 ============================ */
-#contacto form {
+.zigzag-texto form {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 20px;
 }
 
-#contacto input,
-#contacto textarea {
+.zigzag-texto input,
+.zigzag-texto textarea {
     padding: 10px 12px;
     border-radius: 6px;
     border: 1px solid rgba(212, 180, 131, 0.6);
@@ -404,12 +591,12 @@ section .contenido {
     color: var(--blanco-suave);
 }
 
-#contacto input::placeholder,
-#contacto textarea::placeholder {
-    color: rgba(248, 244, 240, 0.7);
+.zigzag-texto input::placeholder,
+.zigzag-texto textarea::placeholder {
+    color: rgba(248, 244, 240, 0.6);
 }
 
-#contacto button {
+.zigzag-texto button {
     margin-top: 5px;
     padding: 10px 16px;
     border-radius: 6px;
@@ -422,9 +609,32 @@ section .contenido {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-#contacto button:hover {
-    background: #e3c79a;
+.zigzag-texto button:hover {
+    background: var(--dorado-claro);
     transform: translateY(-1px);
+}
+
+/* ============================
+   BOTÓN ELEGANTE ENLACES
+============================ */
+.boton-enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px 22px;
+    background: var(--dorado);
+    color: var(--burdeos-oscuro);
+    font-weight: 600;
+    font-size: 1.05rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.boton-enlace:hover {
+    background: var(--dorado-claro);
+    transform: translateY(-2px);
 }
 
 /* ============================
@@ -434,8 +644,8 @@ section .contenido {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     border: none;
     background: var(--dorado);
@@ -452,7 +662,6 @@ section .contenido {
 #btnTop.visible {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
 }
 
 #btnTop:hover {
@@ -460,22 +669,21 @@ section .contenido {
 }
 
 /* ============================
-   FOOTER (FONDO MORADO CONTINUO)
+   FOOTER
 ============================ */
 footer {
     padding: 40px 10px;
     text-align: center;
     color: var(--blanco-suave);
     font-size: 0.9rem;
-
-    /* Fondo morado continuo hasta el final */
-    background: rgba(74, 14, 31, 0.45);
+    background: var(--burdeos-oscuro);
+    border-top: 1px solid rgba(212,180,131,0.2);
 }
 
 footer .linea {
     height: 1px;
     background: linear-gradient(to right, transparent, var(--dorado), transparent);
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 footer .logo-footer {
@@ -483,29 +691,93 @@ footer .logo-footer {
     justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 /* ============================
-   Botón elegante para enlaces externos
+   MENÚ MÓVIL
 ============================ */
-.boton-enlace {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 22px;
-    background: var(--dorado);
-    color: var(--burdeos-oscuro);
-    font-weight: 600;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
+@media (max-width: 700px) {
 
-.boton-enlace:hover {
-    background: #e3c79a;
-    transform: translateY(-2px);
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(74, 8, 24, 0.96);
+        backdrop-filter: blur(6px);
+        padding: 20px 0;
+        animation: slideDown 0.3s ease;
+    }
+
+    nav.expanded .menu-links {
+        display: flex;
+    }
+
+    .menu-links a {
+        padding: 14px 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(212, 180, 131, 0.2);
+        color: var(--dorado);
+    }
+
+    .menu-links a:last-child {
+        border-bottom: none;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .title { font-size: 3.2rem; }
+    .hero { background-attachment: scroll; }
+    .hero-fecha { font-size: 1.1rem; letter-spacing: 3px; }
+
+    .countdown div { min-width: 45%; }
+    .countdown span { font-size: 1.6rem; }
+
+    /* Bienvenida en móvil: ocultar ornamentos y centrar */
+    .bienvenida-inner {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .ornamento-der { display: none; }
+    .ornamento-izq { display: none; }
+
+    .bienvenida-subtitulo { font-size: 2.2rem; }
+    .bienvenida-titulo { font-size: 3rem; }
+
+    /* Zigzag en móvil: columna única */
+    .zigzag-inner,
+    .zigzag-invertido {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .zigzag-media {
+        flex: none;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .zigzag-ornamento {
+        width: 80px;
+    }
+
+    .zigzag-texto h2 { font-size: 1.9rem; }
+    .zigzag-texto p  { font-size: 1.05rem; }
+
+    .polaroid { width: 130px; }
+
+    .arrow-left { left: 10px; }
+    .arrow-right { right: 10px; }
+
+    #cursor-glow { display: none; }
 }

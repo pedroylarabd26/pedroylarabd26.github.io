@@ -206,52 +206,49 @@ nav .logo-mini {
 ============================ */
 .countdown {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 8px;
 }
 
-.countdown div {
-    background: none;
-    border: none;
-    border-radius: 0;
-    padding: 0 28px;
-    min-width: 0;
-    text-align: center;
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 clamp(12px, 3vw, 28px);
     position: relative;
 }
 
-/* Separador vertical entre unidades */
-.countdown div + div::before {
+.countdown-unit + .countdown-unit::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 10%;
-    height: 80%;
+    top: 15%;
+    height: 70%;
     width: 1px;
     background: rgba(212, 180, 131, 0.4);
 }
 
-.countdown span {
+.countdown-unit span {
     display: block;
     font-family: "Playfair Display", serif;
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.8rem, 5vw, 3rem);
     font-weight: 400;
     color: var(--dorado);
     line-height: 1;
     letter-spacing: 1px;
 }
 
-/* Etiqueta debajo del número */
-.countdown div {
-    font-size: 0.65rem;
+.countdown-label {
+    font-size: clamp(0.5rem, 1.5vw, 0.65rem);
     letter-spacing: 3px;
     text-transform: uppercase;
     color: rgba(248, 244, 240, 0.55);
     font-family: "Playfair Display", serif;
     margin-top: 6px;
+    white-space: nowrap;
 }
 
 /* ============================
@@ -407,10 +404,9 @@ nav .logo-mini {
     gap: 60px;
 }
 
-/* Alternado automático:
-   secciones impares  → ornamento izquierda, texto derecha (orden natural)
-   secciones pares    → texto izquierda, ornamento derecha (invertido) */
-.zigzag-section:nth-of-type(even) .zigzag-inner {
+/* Alternado: odd → ornamento izquierda (orden natural)
+              even → ornamento derecha (invertido) */
+.zigzag-inner.par {
     flex-direction: row-reverse;
 }
 
@@ -768,8 +764,8 @@ footer .logo-footer {
     .hero { background-attachment: scroll; }
     .hero-fecha { font-size: 1rem; letter-spacing: 2px; }
 
-    .countdown div { padding: 0 16px; }
-    .countdown span { font-size: clamp(1.6rem, 7vw, 2rem); }
+    .countdown-unit { padding: 0 clamp(10px, 4vw, 16px); }
+    .countdown-unit span { font-size: clamp(1.5rem, 7vw, 2rem); }
 
     /* Bienvenida en móvil: ocultar ornamentos y centrar */
     .bienvenida-inner {
@@ -783,9 +779,9 @@ footer .logo-footer {
     .bienvenida-subtitulo { font-size: 2.2rem; }
     .bienvenida-titulo { font-size: 3rem; }
 
-    /* Zigzag en móvil: columna única, deshacemos el nth-child */
+    /* Zigzag en móvil: columna única, deshacemos el par/impar */
     .zigzag-inner,
-    .zigzag-section:nth-of-type(even) .zigzag-inner {
+    .zigzag-inner.par {
         flex-direction: column;
         gap: 30px;
     }

@@ -2,7 +2,7 @@
    CONTADOR
 ============================ */
 function actualizarContador() {
-    const objetivo = new Date("2026-10-17T12:00:00Z");
+    const objetivo = new Date("2026-10-17T13:00:00");
     const ahora = new Date();
     const diferencia = objetivo - ahora;
 
@@ -31,8 +31,7 @@ actualizarContador();
 const cursorGlow = document.getElementById('cursor-glow');
 
 document.addEventListener('mousemove', (e) => {
-    cursorGlow.style.left = e.clientX + 'px';
-    cursorGlow.style.top  = e.clientY + 'px';
+    cursorGlow.style.transform = `translate3d(${e.clientX - 150}px, ${e.clientY - 150}px, 0)`;
 });
 
 /* ============================
@@ -44,22 +43,29 @@ document.addEventListener('mousemove', (e) => {
    Ilumina el elemento completo al pasar el ratón
    (sin fragmentar el texto en spans para no romper el layout)
 ============================ */
+const isHoverCapable = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
 document.querySelectorAll('.reveal-cursor').forEach(el => {
     // Arranca con opacidad reducida
     el.style.transition = 'opacity 0.6s ease, text-shadow 0.6s ease';
-    el.style.opacity = '0.55';
-
-    // Al entrar: revela completamente con brillo
-    el.addEventListener('mouseenter', () => {
-        el.style.opacity = '1';
-        el.style.textShadow = '0 0 30px rgba(212,180,131,0.6)';
-    });
-
-    // Al salir: vuelve al estado inicial suavemente
-    el.addEventListener('mouseleave', () => {
+    
+    if (isHoverCapable) {
         el.style.opacity = '0.55';
-        el.style.textShadow = '';
-    });
+
+        // Al entrar: revela completamente con brillo
+        el.addEventListener('mouseenter', () => {
+            el.style.opacity = '1';
+            el.style.textShadow = '0 0 30px rgba(212,180,131,0.6)';
+        });
+
+        // Al salir: vuelve al estado inicial suavemente
+        el.addEventListener('mouseleave', () => {
+            el.style.opacity = '0.55';
+            el.style.textShadow = '';
+        });
+    } else {
+        el.style.opacity = '1';
+    }
 });
 
 /* ============================
@@ -176,6 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* Zoom táctil + swipe combinados en listeners unificados */
     let distanciaInicial = 0;
     let inicioY = 0;
+    let inicioX = 0;
     let gestoDosD = false;
 
     lightboxImg.addEventListener('touchstart', (e) => {
@@ -185,6 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (e.touches.length === 1) {
             gestoDosD = false;
             inicioY = e.touches[0].clientY;
+            inicioX = e.touches[0].clientX;
         }
     });
 
@@ -198,6 +206,22 @@ document.addEventListener("DOMContentLoaded", () => {
             const desplazamiento = e.touches[0].clientY - inicioY;
             if (desplazamiento > 120 && escala === 1) {
                 cerrarLightbox();
+            }
+        }
+    });
+
+    lightboxImg.addEventListener('touchend', (e) => {
+        if (!gestoDosD && e.changedTouches.length === 1 && escala === 1) {
+            const finX = e.changedTouches[0].clientX;
+            const difX = finX - inicioX;
+            
+            if (Math.abs(difX) > 50) {
+                if (difX > 0) {
+                    indiceActual = (indiceActual - 1 + archivosGaleria.length) % archivosGaleria.length;
+                } else {
+                    indiceActual = (indiceActual + 1) % archivosGaleria.length;
+                }
+                abrirLightbox(indiceActual);
             }
         }
     });

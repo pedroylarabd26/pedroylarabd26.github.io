@@ -1,295 +1,295 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda de Pedro y Lara</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Pedro y Lara</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Tipografías -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Bellefair&display=swap" rel="stylesheet">
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Bellefair&display=swap" rel="stylesheet">
 
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
 
-    <!-- Estilos -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Cursor personalizado -->
-    <div id="cursor-glow"></div>
+    <!-- Cursor personalizado -->
+    <div id="cursor-glow"></div>
 
-    <!-- Menú -->
-    <nav>
-        <div class="logo-mini">
-            <div class="logo-circle">P&amp;L</div>
-        </div>
+    <!-- Menú -->
+    <nav>
+        <div class="logo-mini">
+            <div class="logo-circle">P&amp;L</div>
+        </div>
 
-        <div id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</div>
+        <div id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</div>
 
-        <div class="menu-links">
-            <a href="#bienvenida">Inicio</a>
-            <a href="#info">Información</a>
-            <a href="#ubicacion">Ubicación</a>
-            <!-- <a href="#galeria">Galería</a>  -->
-            <a href="#fotos">Comparte tus fotos</a>
-            <a href="#musica">Sugerencias musicales</a>
-            <!-- <a href="#confirmacion">Confirmación</a> -->
-            <a href="#contacto">Contacto</a>
-        </div>
-    </nav>
+        <div class="menu-links">
+            <a href="#bienvenida">Inicio</a>
+            <a href="#info">Información</a>
+            <a href="#ubicacion">Ubicación</a>
+            <!-- <a href="#galeria">Galería</a>  -->
+            <a href="#fotos">Comparte tus fotos</a>
+            <a href="#musica">Sugerencias musicales</a>
+            <!-- <a href="#confirmacion">Confirmación</a> -->
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
 
-    <!-- ===================== -->
-    <!-- HERO: Foto con overlay -->
-    <!-- ===================== -->
-    <div class="hero" id="hero">
-        <!-- La imagen de fondo se pone en CSS como variable, o directamente con style -->
-        <!-- Usa tu foto: style="--hero-img: url('fotos_web/TU_FOTO.jpg')" -->
-        <div class="hero-overlay"></div>
+    <!-- ===================== -->
+    <!-- HERO: Foto con overlay -->
+    <!-- ===================== -->
+    <div class="hero" id="hero">
+        <!-- La imagen de fondo se pone en CSS como variable, o directamente con style -->
+        <!-- Usa tu foto: style="--hero-img: url('fotos_web/TU_FOTO.jpg')" -->
+        <div class="hero-overlay"></div>
 
-        <div class="hero-content">
-            <p class="hero-pre reveal-cursor" data-text="Save the Date">Save the Date</p>
-            <h1 class="title reveal-cursor" data-text="Pedro &amp; Lara">Pedro &amp; Lara</h1>
-            <div class="hero-fecha reveal-cursor" data-text="17 · 10 · 2026">17 · 10 · 2026</div>
+        <div class="hero-content">
+            <p class="hero-pre reveal-cursor" data-text="Save the Date">Save the Date</p>
+            <h1 class="title reveal-cursor" data-text="Pedro &amp; Lara">Pedro &amp; Lara</h1>
+            <div class="hero-fecha reveal-cursor" data-text="17 · 10 · 2026">17 · 10 · 2026</div>
 
-            <div class="countdown">
-                <div class="countdown-unit"><span id="days">0</span><span class="countdown-label">Días</span></div>
-                <div class="countdown-unit"><span id="hours">0</span><span class="countdown-label">Horas</span></div>
-                <div class="countdown-unit"><span id="minutes">0</span><span class="countdown-label">Minutos</span></div>
-                <div class="countdown-unit"><span id="seconds">0</span><span class="countdown-label">Segundos</span></div>
-            </div>
-        </div>
-    </div>
+            <div class="countdown">
+                <div class="countdown-unit"><span id="days">0</span><span class="countdown-label">Días</span></div>
+                <div class="countdown-unit"><span id="hours">0</span><span class="countdown-label">Horas</span></div>
+                <div class="countdown-unit"><span id="minutes">0</span><span class="countdown-label">Minutos</span></div>
+                <div class="countdown-unit"><span id="seconds">0</span><span class="countdown-label">Segundos</span></div>
+            </div>
+        </div>
+    </div>
 
-    <!-- ===================== -->
-    <!-- SECCIÓN BIENVENIDA    -->
-    <!-- burdeos liso + ornamento barroco + texto -->
-    <!-- ===================== -->
-    <section id="bienvenida" class="bienvenida-section animate">
-        <div class="bienvenida-inner">
-            <!-- Ornamento barroco izquierda -->
-            <div class="ornamento ornamento-izq" aria-hidden="true">
-            <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
-        </div>
+    <!-- ===================== -->
+    <!-- SECCIÓN BIENVENIDA    -->
+    <!-- burdeos liso + ornamento barroco + texto -->
+    <!-- ===================== -->
+    <section id="bienvenida" class="bienvenida-section animate">
+        <div class="bienvenida-inner">
+            <!-- Ornamento barroco izquierda -->
+            <div class="ornamento ornamento-izq" aria-hidden="true">
+            <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
+        </div>
 
-            <!-- Texto central -->
-            <div class="bienvenida-texto">
-                <p class="bienvenida-subtitulo reveal-cursor" data-text="¡Nos casamos!">¡Nos casamos!</p>
-                <h2 class="bienvenida-titulo reveal-cursor" data-text="Pedro &amp; Lara">Pedro &amp; Lara</h2>
-                <p class="bienvenida-cuerpo">
-                    Queremos que seas parte del día más especial de nuestras vidas.<br>
-                    Acompáñanos en esta celebración llena de amor, alegría y momentos que recordaremos siempre.
-                </p>
-                <div class="bienvenida-separador">
-                    <span>✦</span><span>✦</span><span>✦</span>
-                </div>
-                <p class="bienvenida-fecha-grande">17 · Octubre · 2026</p>
-                <p class="bienvenida-lugar">Parador de Jarandilla de la Vera</p>
-            </div>
+            <!-- Texto central -->
+            <div class="bienvenida-texto">
+                <p class="bienvenida-subtitulo reveal-cursor" data-text="¡Nos casamos!">¡Nos casamos!</p>
+                <h2 class="bienvenida-titulo reveal-cursor" data-text="Pedro &amp; Lara">Pedro &amp; Lara</h2>
+                <p class="bienvenida-cuerpo">
+                    Queremos que seas parte del día más especial de nuestras vidas.<br>
+                    Acompáñanos en esta celebración llena de amor, alegría y momentos que recordaremos siempre.
+                </p>
+                <div class="bienvenida-separador">
+                    <span>✦</span><span>✦</span><span>✦</span>
+                </div>
+                <p class="bienvenida-fecha-grande">17 · Octubre · 2026</p>
+                <p class="bienvenida-lugar">Parador de Jarandilla de la Vera</p>
+            </div>
 
-            <!-- Ornamento barroco derecha (espejo) -->
-            <div class="ornamento ornamento-der" aria-hidden="true">
-            <img src="utilities/Derecho.png" alt="" class="ornamento-img">
-        </div>
-        </div>
-    </section>
+            <!-- Ornamento barroco derecha (espejo) -->
+            <div class="ornamento ornamento-der" aria-hidden="true">
+            <img src="utilities/Derecho.png" alt="" class="ornamento-img">
+        </div>
+        </div>
+    </section>
 
-    <!-- ===================== -->
-    <!-- SECCIONES EN ZIGZAG   -->
-    <!-- ===================== -->
+    <!-- ===================== -->
+    <!-- SECCIONES EN ZIGZAG   -->
+    <!-- ===================== -->
 
-    <!-- Info -->
-    <section id="info" class="zigzag-section animate">
-        <div class="zigzag-inner impar">
-            <div class="zigzag-media">
-                <div class="zigzag-ornamento" aria-hidden="true">
-                    <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
-                </div>
-            </div>
-            <div class="zigzag-texto">
-                <h2>Información</h2>
-                <p>Aquí podrás encontrar todos los detalles sobre nuestro gran día.</p>
-                <p> ⚠️ En actualización constante ⚠️ </p>
-                <p> </p>
-                <p>Horario provisional del Viernes 16 de octubre de 2026:</p> 
-                    <ul>
-                        <li>20:00 - Inicio PreBoda</li>
-                        <li>23:00 - Fin PreBoda</li>
-                    </ul>
-                </p>
-                <p>Horario provisional del Sábado 17 de octubre de 2026:</p> 
-                    <ul>
-                        <li>13:00 - Ceremonia</li>
-                        <li>15:00 - Cóctel</li>
-                        <li>17:00 - Comida</li>
-                        <li>20:00 - Barra libre</li>
-                    </ul>
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- Info -->
+    <section id="info" class="zigzag-section animate">
+        <div class="zigzag-inner impar">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
+                </div>
+            </div>
+            <div class="zigzag-texto">
+                <h2>Información</h2>
+                <p>Aquí podrás encontrar todos los detalles sobre nuestro gran día.</p>
+                <p> ⚠️ En actualización constante ⚠️ </p>
+                <p> </p>
+                <p>Horario provisional del Viernes 16 de octubre de 2026:</p> 
+                    <ul>
+                        <li>20:00 - Inicio PreBoda</li>
+                        <li>23:00 - Fin PreBoda</li>
+                    </ul>
+                
+                <p>Horario provisional del Sábado 17 de octubre de 2026:</p> 
+                    <ul>
+                        <li>13:00 - Ceremonia</li>
+                        <li>15:00 - Cóctel</li>
+                        <li>17:00 - Comida</li>
+                        <li>20:00 - Barra libre</li>
+                    </ul>
+                
+            </div>
+        </div>
+    </section>
 
-    <!-- Ubicación -->
-    <section id="ubicacion" class="zigzag-section animate">
-        <div class="zigzag-inner par">
-            <div class="zigzag-media">
-                <div class="zigzag-ornamento" aria-hidden="true">
-                    <img src="utilities/Derecho.png" alt="" class="ornamento-img">
-                </div>
-            </div>
-            <div class="zigzag-texto">
-                <h2>Ubicación</h2>
-                <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
-                <iframe
-                    class="mapa"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.184763566113!2d-5.660948!3d40.127948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e4a4e3a14d0f%3A0x8e7c2e3c8c0f2b0!2sParador%20de%20Jarandilla%20de%20la%20Vera!5e0!3m2!1ses!2ses!4v1700000000000"
-                    height="320"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
-                <a class="boton-enlace" href="https://maps.google.com/?q=Parador+de+Jarandilla+de+la+Vera" target="_blank">
-                    📍 Ver en Google Maps
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Ubicación -->
+    <section id="ubicacion" class="zigzag-section animate">
+        <div class="zigzag-inner par">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <img src="utilities/Derecho.png" alt="" class="ornamento-img">
+                </div>
+            </div>
+            <div class="zigzag-texto">
+                <h2>Ubicación</h2>
+                <p>La celebración tendrá lugar en el Parador de Jarandilla de la Vera.</p>
+                <iframe
+                    class="mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.184763566113!2d-5.660948!3d40.127948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e4a4e3a14d0f%3A0x8e7c2e3c8c0f2b0!2sParador%20de%20Jarandilla%20de%20la%20Vera!5e0!3m2!1ses!2ses!4v1700000000000"
+                    height="320"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+                <a class="boton-enlace" href="https://maps.google.com/?q=Parador+de+Jarandilla+de+la+Vera" target="_blank">
+                    📍 Ver en Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Galería -->
+    <!-- Galería -->
     <!--
-    <section id="galeria" class="zigzag-section animate">
-        <div class="zigzag-inner impar">
-            <div class="zigzag-media">
-                <div class="zigzag-ornamento" aria-hidden="true">
-                    <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
-                </div>
-            </div>
-            <div class="zigzag-texto galeria-bloque">
-                <h2>Galería</h2>
-                <p>Algunos momentos especiales que queremos compartir contigo.</p>
-                <div class="galeria-grid" id="galeriaGrid"></div>
-            </div>
-        </div>
-    </section>
+    <section id="galeria" class="zigzag-section animate">
+        <div class="zigzag-inner impar">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
+                </div>
+            </div>
+            <div class="zigzag-texto galeria-bloque">
+                <h2>Galería</h2>
+                <p>Algunos momentos especiales que queremos compartir contigo.</p>
+                <div class="galeria-grid" id="galeriaGrid"></div>
+            </div>
+        </div>
+    </section>
     -->
-    <!-- LIGHTBOX -->
-    <div id="lightbox" class="lightbox-overlay">
-        <div class="lightbox-content">
-            <span class="lightbox-close">×</span>
-            <span class="lightbox-arrow arrow-left">❮</span>
-            <span class="lightbox-arrow arrow-right">❯</span>
-            <img id="lightbox-img" src="" alt="">
-        </div>
-    </div>
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox-overlay">
+        <div class="lightbox-content">
+            <span class="lightbox-close">×</span>
+            <span class="lightbox-arrow arrow-left">❮</span>
+            <span class="lightbox-arrow arrow-right">❯</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
 
-    <!-- Fotos 1 -->
-    <section id="fotos" class="zigzag-section animate">
-        <div class="zigzag-inner par">
-            <div class="zigzag-media">
-                <div class="zigzag-ornamento" aria-hidden="true">
-                    <img src="utilities/Derecho.png" alt="" class="ornamento-img">
-                </div>
-            </div>
-            <div class="zigzag-texto">
-                <h2>Comparte tus fotos</h2>
-                <p>Si quieres compartir fotos que tengas con nosotros (o de nosotros) estaremos encantados de tenerlas..</p>
-                <a class="boton-enlace" href="https://photos.app.goo.gl/ge56DtzXjwJia8aF7" target="_blank">
-                    📸 Enlace al álbum "Fotos Pedro y Lara"
-                </a>
+    <!-- Fotos 1 -->
+    <section id="fotos" class="zigzag-section animate">
+        <div class="zigzag-inner par">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <img src="utilities/Derecho.png" alt="" class="ornamento-img">
+                </div>
+            </div>
+            <div class="zigzag-texto">
+                <h2>Comparte tus fotos</h2>
+                <p>Si quieres compartir fotos que tengas con nosotros (o de nosotros) estaremos encantados de tenerlas..</p>
+                <a class="boton-enlace" href="https://photos.app.goo.gl/ge56DtzXjwJia8aF7" target="_blank">
+                    📸 Enlace al álbum "Fotos Pedro y Lara"
+                </a>
                 <p>Si haces fotos durante la boda, nos encantará que las compartas en nuestro álbum colaborativo.</p>
-                <a class="boton-enlace" href="https://photos.app.goo.gl/AfaASDCPPiek4XHbA" target="_blank">
-                    📸 Enlace al álbum "Fotos de la boda"
-                </a>
-            </div>
-        </div>
-    </section>
+                <a class="boton-enlace" href="https://photos.app.goo.gl/AfaASDCPPiek4XHbA" target="_blank">
+                    📸 Enlace al álbum "Fotos de la boda"
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Música -->
-    <section id="musica" class="zigzag-section animate">
-        <div class="zigzag-inner impar">
-            <div class="zigzag-media">
-                <div class="zigzag-ornamento" aria-hidden="true">
-                    <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
-                </div>
-            </div>
-            <div class="zigzag-texto">
-                <h2>Sugerencias musicales</h2>
-                <p>¿Quieres que suene tu canción favorita durante la barra libre? </br> Añádela a nuestra lista colaborativa.</p>
-                <a class="boton-enlace" href="https://open.spotify.com/playlist/4zoP2iYWX6ioHUpeyQVJYh?si=33a23b1b98ec4ffe&pt=d71bd0d0f29a2cf92cd924ee0c112b28" target="_blank">
-                    🎵 Enlace a la lista
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Música -->
+    <section id="musica" class="zigzag-section animate">
+        <div class="zigzag-inner impar">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
+                </div>
+            </div>
+            <div class="zigzag-texto">
+                <h2>Sugerencias musicales</h2>
+                <p>¿Quieres que suene tu canción favorita durante la barra libre? <br> Añádela a nuestra lista colaborativa.</p>
+                <a class="boton-enlace" href="https://open.spotify.com/playlist/4zoP2iYWX6ioHUpeyQVJYh?si=33a23b1b98ec4ffe&pt=d71bd0d0f29a2cf92cd924ee0c112b28" target="_blank">
+                    🎵 Enlace a la lista
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Confirmación -->
+    <!-- Confirmación -->
 <!--
-    <section id="confirmacion" class="zigzag-section animate">
-        <div class="zigzag-inner centrado">
-            <div class="zigzag-texto">
-                <h2>Confirmación</h2>
-                <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
-                <iframe
-                    class="formulario"
-                    src="https://forms.office.com/r/qKpgsLNQUu"
-                    height="725"
-                    loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </section>
+    <section id="confirmacion" class="zigzag-section animate">
+        <div class="zigzag-inner centrado">
+            <div class="zigzag-texto">
+                <h2>Confirmación</h2>
+                <p>Por favor, confirma tu asistencia en el siguiente formulario:</p>
+                <iframe
+                    class="formulario"
+                    src="https://forms.office.com/r/qKpgsLNQUu"
+                    height="725"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
 -->
 
-    <!-- Contacto -->
-    <section id="contacto" class="zigzag-section animate">
-        <div class="zigzag-inner ambos">
-            <div class="zigzag-media">
-                <div class="zigzag-ornamento" aria-hidden="true">
-                    <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
-                </div>
-            </div>
-            <div class="zigzag-texto">
-                <h2>Contacto</h2>
-                <p>Si tienes cualquier duda, puedes escribirnos directamente desde aquí.</p>
+    <!-- Contacto -->
+    <section id="contacto" class="zigzag-section animate">
+        <div class="zigzag-inner ambos">
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <img src="utilities/Izquierdo.png" alt="" class="ornamento-img">
+                </div>
+            </div>
+            <div class="zigzag-texto">
+                <h2>Contacto</h2>
+                <p>Si tienes cualquier duda, puedes escribirnos directamente desde aquí.</p>
 
-                <form action="https://formsubmit.co/pedro.dc93@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de la boda">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="text" name="_honey" style="display:none">
+                <form action="https://formsubmit.co/pedro.dc93@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de la boda">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
 
-                    <input type="text" name="Nombre" placeholder="Tu nombre" required>
-                    <input type="email" name="Email" placeholder="Tu correo electrónico" required>
-                    <textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-            <div class="zigzag-media">
-                <div class="zigzag-ornamento" aria-hidden="true">
-                    <img src="utilities/Derecho.png" alt="" class="ornamento-img">
-                </div>
-            </div>
-        </div>
-    </section>
+                    <input type="text" name="Nombre" placeholder="Tu nombre" required>
+                    <input type="email" name="Email" placeholder="Tu correo electrónico" required>
+                    <textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+            <div class="zigzag-media">
+                <div class="zigzag-ornamento" aria-hidden="true">
+                    <img src="utilities/Derecho.png" alt="" class="ornamento-img">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="linea"></div>
-        <div class="logo-footer">
-            <div class="logo-circle">P&amp;L</div>
-        </div>
-        <div>© Boda de Pedro y Lara · 17 · 10 · 2026</div>
-    </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="linea"></div>
+        <div class="logo-footer">
+            <div class="logo-circle">P&amp;L</div>
+        </div>
+        <div>© Boda de Pedro y Lara · 17 · 10 · 2026</div>
+    </footer>
 
-    <!-- Botón volver arriba -->
-    <button id="btnTop" aria-label="Volver arriba">↑</button>
+    <!-- Botón volver arriba -->
+    <button id="btnTop" aria-label="Volver arriba">↑</button>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
 
 </body>
 </html>

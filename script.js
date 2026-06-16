@@ -36,10 +36,6 @@ document.addEventListener('mousemove', (e) => {
 
 /* ============================
    EFECTO "LETRA SURGE" AL MOVER CURSOR
-   Ilumina el texto al pasar el ratón
-============================ */
-/* ============================
-   EFECTO "LETRA SURGE" AL MOVER CURSOR
    Ilumina el elemento completo al pasar el ratón
    (sin fragmentar el texto en spans para no romper el layout)
 ============================ */

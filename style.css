@@ -763,8 +763,21 @@ footer .logo-footer {
     .hero { background-attachment: scroll; }
     .hero-fecha { font-size: 1rem; letter-spacing: 2px; }
 
-    .countdown-unit { padding: 0 clamp(10px, 4vw, 16px); }
-    .countdown-unit span { font-size: clamp(1.5rem, 7vw, 2rem); }
+    /* ACTUALIZACIÓN: Contador en 2x2 para móviles */
+    .countdown {
+        flex-wrap: wrap;
+        row-gap: 24px;
+    }
+    .countdown-unit {
+        flex: 0 0 50%;
+        padding: 0 10px;
+    }
+    /* Ocultamos la barra vertical del tercer elemento (Minutos) porque baja a la segunda fila */
+    .countdown-unit:nth-child(3)::before {
+        display: none;
+    }
+    .countdown-unit span { font-size: 2.2rem; }
+    .countdown-label { font-size: 0.7rem; letter-spacing: 2px; }
 
     /* Bienvenida en móvil: ocultar ornamentos y centrar */
     .bienvenida-inner {
